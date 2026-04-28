@@ -1,8 +1,13 @@
 [Appearance]
-BoldIntense=false
+BoldIntense=true
 ColorScheme=KanagawaWave
 Font=JetBrainsMono Nerd Font,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0
 UseFontLineChararacters=true
+
+[Cursor Options]
+CustomCursorColor=200,192,147
+CustomCursorTextColor=31,31,40
+UseCustomCursorColor=false
 
 [General]
 Name=Konsole
