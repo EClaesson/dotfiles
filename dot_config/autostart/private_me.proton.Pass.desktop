@@ -1,0 +1,11 @@
+[Desktop Entry]
+Categories=Utility;
+Comment=Proton Pass desktop application
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=start-proton-pass --file-forwarding me.proton.Pass @@u %U @@
+GenericName=Password Manager
+Icon=me.proton.Pass
+Name=Proton Pass
+StartupNotify=true
+Type=Application
+X-Desktop-File-Install-Version=0.28
+X-Flatpak=me.proton.Pass

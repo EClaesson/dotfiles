@@ -1,0 +1,12 @@
+[user]
+	name = Emanuel Claesson
+	email = emanuel.claesson@gmail.com
+[core]
+	editor = nvim -f
+	fsmonitor = true
+[init]
+	defaultbranch = main
+[push]
+	autoSetupRemote = true
+[diff]
+	algorithm = histogram

@@ -1,0 +1,94 @@
+[servers.liberachat]
+nickname = "eclaesson"
+server = "irc.libera.chat"
+use_tls = true
+port = 6697
+channels = [
+    "##electronics",
+    "##infosec",
+    "##infra-talk",
+    "##math",
+    "##networking",
+    "##programming",
+    "##re",
+    "##rust",
+    "##rust-offtopic",
+    "##space",
+    "##systemadmins",
+    "#algorithms",
+    "#archlinux",
+    "#archlinux-aur",
+    "#archlinux-offtopic",
+    "#asm",
+    "#astronomy",
+    "#bind",
+    "#c",
+    "#c++",
+    "#crypto",
+    "#curl",
+    "#datahoarder",
+    "#dns",
+    "#docker",
+    "#elixir",
+    "#erlang",
+    "#gnuradio",
+    "#go-nuts",
+    "#halloy",
+    "#hamradio",
+    "#hardware",
+    "#ipv6",
+    "#isc-dhcp",
+    "#kde",
+    "#kernel",
+    "#linux",
+    "#linux-offtopic",
+    "#lobsters",
+    "#neovim",
+    "#netfilter",
+    "#networking",
+    "#ntp",
+    "#ntp-dev",
+    "#ntpsec",
+    "#openwrt",
+    "#opnsense",
+    "#osdev",
+    "#pfsense",
+    "#postgresql",
+    "#proxmox",
+    "#python",
+    "#reddit-sysadmin",
+    "#rtlsdr",
+    "#science",
+    "#security",
+    "#sigrok",
+    "#sql",
+    "#vim",
+    "#zsh",
+]
+
+[servers.hackint]
+nickname = "eclaesson"
+server = "irc.hackint.org"
+use_tls = true
+port = 6697
+channels = [
+    "#hackint",
+    "#hackernews",
+    "#datahoarders",
+    "#infosec",
+    "#oss-security",
+]
+
+[servers.oftc]
+nickname = "eclaesson"
+server = "irc.oftc.net"
+use_tls = true
+port = 6697
+channels = [
+    "#dns",
+    "#netdev",
+    "#linux",
+    "#C",
+    "#security",
+    "#x86",
+]

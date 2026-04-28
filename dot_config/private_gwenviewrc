@@ -1,0 +1,12 @@
+[General]
+LastUsedVersion=210800
+ShowHiddenFiles=true
+
+[ImageView]
+AnimationMethod=DocumentView::GLAnimation
+
+[MainWindow]
+MenuBar=Disabled
+
+[SideBar]
+InformationSplitterSizes=210,245

@@ -1,0 +1,39 @@
+{
+  "telemetry.enabled": false,
+  "telemetry.check": true,
+  "statusbarProviders.showProviders": {
+    "remindAt": 1777211640787,
+    "disabled": true
+  },
+  "releaseNotesBanner.show": "1.26.2",
+  "extensions.ignoreBannerRecommendations": true,
+  "window.bounds": {
+    "x": 435,
+    "y": 171,
+    "width": 1050,
+    "height": 700
+  },
+  "welcome.version": "initial",
+  "list.dashboard": [
+    {
+      "id": "Release Notes",
+      "enabled": true
+    },
+    {
+      "id": "Extension Banners",
+      "enabled": true
+    },
+    {
+      "id": "Explore Features",
+      "enabled": false
+    },
+    {
+      "id": "Learning Center",
+      "enabled": false
+    },
+    {
+      "id": "Providers",
+      "enabled": true
+    }
+  ]
+}

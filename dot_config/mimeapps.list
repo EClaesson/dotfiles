@@ -1,0 +1,6 @@
+[Added Associations]
+x-scheme-handler/geo=google-maps-geo-handler.desktop;
+
+[Default Applications]
+x-scheme-handler/geo=google-maps-geo-handler.desktop;
+x-scheme-handler/podman-desktop=Podman Desktop.desktop

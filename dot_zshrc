@@ -1,0 +1,45 @@
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME=""
+HIST_STAMPS="yyyy-mm-dd"
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+plugins=(asdf colored-man-pages git zsh-autosuggestions zsh-syntax-highlighting)
+source $ZSH/oh-my-zsh.sh
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
+
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
+setopt EXTENDED_HISTORY
+unsetopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY
+setopt COMPLETE_IN_WORD
+setopt ALWAYS_TO_END
+setopt EXTENDED_GLOB
+setopt NUMERIC_GLOB_SORT
+setopt INTERACTIVE_COMMENTS
+setopt NO_FLOW_CONTROL
+
+[[ -f ~/.claude_code_token ]] && export CLAUDE_CODE_OAUTH_TOKEN=$(cat ~/.claude_code_token)
+export PODMAN_COMPOSE_WARNING_LOGS=false
+export EDITOR=nvim
+export VISUAL=$EDITOR
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+source ${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/java/set-java-home.zsh
+source ${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/golang/set-env.zsh
+
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+alias docker=podman
+alias update="eos-update --aur && \
+    flatpak update && \
+    sudo paccache -ruk0 && \
+    sudo paccache -rk3 && \
+    yay -Su && \
+    flatpak uninstall --unused && \
+    printf '\n:: Searching for orphans...\n' && \
+    { sudo pacman -Qdtq || echo 'No orphans found'; }"
+alias fwcheck="sudo fwupdmgr refresh && fwupdmgr get-updates"
+alias fwupdate="sudo fwupdmgr update"

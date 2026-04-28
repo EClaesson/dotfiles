@@ -1,0 +1,6 @@
+[General]
+ShowTabBar=true
+TabMiddleClick=false
+
+[MainWindow]
+StatusBar=Disabled

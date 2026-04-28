@@ -1,0 +1,123 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+add_newline = true
+palette = "kanagawa_wave"
+
+format = """
+[](fg:crystal_blue)\
+$username\
+[](bg:spring_green fg:crystal_blue)\
+$directory\
+[](bg:oni_violet fg:spring_green)\
+$git_branch\
+$git_status\
+$git_state\
+$package\
+[](bg:boat_yellow2 fg:oni_violet)\
+$kubernetes\
+$container\
+$aws\
+$azure\
+$gcloud\
+$openstack\
+$terraform\
+$python\
+[](bg:wave_aqua2 fg:boat_yellow2)\
+$status\
+$character\
+[ ](fg:wave_aqua2)\
+"""
+
+[username]
+show_always = true
+style_user = "bg:crystal_blue fg:sumi_ink0"
+style_root = "bg:autumn_red fg:fuji_white"
+format = "[ $user ]($style)"
+
+[directory]
+style = "bg:spring_green fg:sumi_ink0"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "bg:oni_violet fg:sumi_ink0"
+format = "[ $symbol $branch ]($style)"
+
+[git_status]
+style = "bg:oni_violet fg:sumi_ink0"
+format = "[($all_status$ahead_behind )]($style)"
+
+[git_state]
+style = "bg:oni_violet fg:sumi_ink0"
+format = "\\([$state( $progress_current/$progress_total)]($style)\\) "
+
+[package]
+symbol = "󰏗"
+style = "bg:oni_violet fg:sumi_ink0"
+format = "[$symbol$version]($style) "
+display_private = true
+
+[kubernetes]
+symbol = ""
+style = "bg:boat_yellow2 fg:sumi_ink0"
+format = "[$symbol$context( \\($namespace\\))]($style) "
+disabled = false
+detect_files = ["*kubernetes.yml", "*kubernetes.yaml"]
+
+[container]
+symbol = "⬢"
+style = "bg:boat_yellow2 fg:sumi_ink0"
+format = "[$symbol \\[$name\\]]($style) "
+
+[aws]
+symbol = ""
+style = "bg:boat_yellow2 fg:sumi_ink0"
+format = "[ $symbol($profile )(\\($region\\) )]($style)"
+
+[azure]
+symbol = ""
+style = "bg:boat_yellow2 fg:sumi_ink0"
+format = "[$symbol($subscription)]($style) "
+
+[gcloud]
+symbol = ""
+style = "bg:boat_yellow2 fg:sumi_ink0"
+format = "[$symbol$account(@$domain)(\\($region\\))]($style) "
+
+[openstack]
+symbol = ""
+style = "bg:boat_yellow2 fg:sumi_ink0"
+format = "[$symbol$cloud(\\($project\\))]($style) "
+
+[terraform]
+symbol = ""
+style = "bg:boat_yellow2 fg:sumi_ink0"
+format = "[$symbol$workspace]($style) "
+
+[python]
+symbol = ""
+style = "bg:boat_yellow2 fg:sumi_ink0"
+format = "[${symbol}($virtualenv )]($style) "
+
+[character]
+format = "$symbol"
+success_symbol = "[  ](bg:wave_aqua2 fg:sumi_ink0)"
+error_symbol = "[  ](bg:wave_aqua2 fg:autumn_red)"
+
+[status]
+format = "[ $status]($style)"
+style = "bg:wave_aqua2 fg:sumi_ink0"
+disabled = false
+
+[palettes.kanagawa_wave]
+sumi_ink0 = "#16161D"
+sumi_ink3 = "#1F1F28"
+crystal_blue = "#7E9CD8"
+spring_green = "#98BB6C"
+boat_yellow2 = "#C0A36E"
+oni_violet = "#957FB8"
+wave_aqua2 = "#7AA89F"
+autumn_red = "#C34043"
+fuji_white = "#DCD7BA"

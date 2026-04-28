@@ -1,0 +1,25 @@
+return {
+	"folke/which-key.nvim",
+	event = "VeryLazy",
+	opts = {
+		delay = 0,
+		icons = { mappings = vim.g.have_nerd_font },
+		spec = {
+			{ "<leader>a", group = "[A]I", mode = { "n", "v" } },
+			{ "<leader>b", group = "[B]uffer", mode = { "n", "v" } },
+			{ "<leader>c", group = "[C]ode" },
+			{ "<leader>d", group = "[D]ebug", mode = { "n", "v" } },
+			{ "<leader>g", group = "[G]it" },
+			{ "<leader>h", group = "[H]arpoon", mode = { "n" } },
+			{ "<leader>i", group = "[I]nterface", mode = { "n", "v" } },
+			{ "<leader>n", group = "[N]eotest" },
+			{ "<leader>R", group = "[R]EST" },
+			{ "<leader>s", group = "[S]earch", mode = { "n", "v" } },
+			{ "<leader>t", group = "[T]oggle" },
+			{ "<leader>T", group = "[T]erminal", mode = { "n", "t" } },
+			{ "<leader>x", group = "E[x]amine" },
+			{ "gr", group = "LSP [A]ctions", mode = { "n", "x" } },
+			{ "gs", group = "[S]urround" },
+		},
+	},
+}
