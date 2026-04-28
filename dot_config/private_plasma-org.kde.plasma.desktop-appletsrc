@@ -4,28 +4,6 @@ RightButton;NoModifier=org.kde.contextmenu
 [ActionPlugins][1]
 RightButton;NoModifier=org.kde.contextmenu
 
-[Containments][1]
-ItemGeometries-1718x920=
-ItemGeometries-1918x920=
-ItemGeometries-1920x1080=
-ItemGeometriesHorizontal=
-activityId=
-formfactor=0
-immutability=1
-lastScreen=0
-location=0
-plugin=org.kde.plasma.folder
-wallpaperplugin=org.kde.image
-
-[Containments][1][ConfigDialog]
-DialogHeight=630
-DialogWidth=810
-
-[Containments][1][Wallpaper][org.kde.image][General]
-FillMode=0
-Image=file:///home/eclaesson/.local/share/wallpapers/kanagawa.jpg
-SlidePaths=/home/eclaesson/.local/share/wallpapers/,/usr/share/wallpapers/
-
 [Containments][2]
 activityId=
 formfactor=2
@@ -257,13 +235,19 @@ shownItems=org.kde.plasma.volume,chrome_status_icon_1,proton.vpn.app.gtk,org.kde
 AppletOrder=3;4;5;35;36;33;34;7;6;32;21;22
 
 [Containments][25]
+ItemGeometries-1920x1080=
+ItemGeometriesHorizontal=
 activityId=d712fa16-2eb5-45b3-aa6d-0e87caeb1504
 formfactor=0
 immutability=1
-lastScreen=1
+lastScreen=0
 location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
+
+[Containments][25][Wallpaper][org.kde.image][General]
+Image=file:///home/eclaesson/.local/share/wallpapers/kanagawa.jpg
+SlidePaths=/home/eclaesson/.local/share/wallpapers/,/usr/share/wallpapers/
 
 [ScreenMapping]
 itemsOnDisabledScreens=

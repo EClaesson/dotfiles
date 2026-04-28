@@ -1,90 +1,85 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-name="Emanuel Claesson"
-email="emanuel.claesson@gmail.com"
-editor="nvim"
-
 yay_packages=(
-    tree
-    htop
-    jq
-    zsh
-    tealdeer
-    uv
-    neovim
-    tmux
-    ktorrent
-    kcharselect
-    filelight
-    kamoso
-    halloy
-    tokei
-    rclone
-    zoxide
-    tcpdump
-    yq
-    postgresql-libs
-    mariadb-clients
-    nmap
-    wireshark-cli
-    wireshark-qt
-    ghidra
-    imhex
-    opentofu
-    valgrind
+    asdf-vm
+    asn-git
+    aws-cli
+    balena-etcher
+    cargo-audit
+    cargo-expand
+    cargo-flamegraph
+    cargo-llvm-cov
+    cargo-machete
+    cargo-nextest
+    cinny-desktop-bin
+    claude-agent-acp
+    claude-code
     cmake
-    gimp
+    filelight
+    flatpak
     freecad
+    ghidra
+    gimp
+    halloy
+    htop
+    imhex
+    informant
+    jq
+    kamoso
+    kcharselect
     kicad
     kicad-library
     kicad-library-3d
-    ttf-jetbrains-mono-nerd
-    flatpak
-    podman
-    podman-desktop
-    podman-compose
-    steam
-    xclip
-    tree-sitter-cli
     krdc
     krfb
-    asdf-vm
-    asn-git
-    sdrconnect
-    balena-etcher
-    claude-code
-    onlyoffice-bin
-    mqttx-bin
-    sdrangel-bin
-    informant
+    ktorrent
+    mariadb-clients
     mold
-    cargo-expand
-    cargo-audit
-    cargo-machete
-    cargo-nextest
-    cargo-llvm-cov
-    cargo-flamegraph
-    scaleway-cli
-    aws-cli
-    starship
-    claude-agent-acp
-    chezmoi
+    mqttx-bin
+    neovim
+    nmap
+    onlyoffice-bin
+    opentofu
     plasma-weather-plus
-    plasma6-applets-resources-monitor
     plasma6-applets-plasmusic-toolbar
-    cinny-desktop-bin
+    plasma6-applets-resources-monitor
+    podman
+    podman-compose
+    podman-desktop
+    postgresql-libs
+    rclone
+    scaleway-cli
+    sdrangel-bin
+    sdrconnect
+    starship
+    steam
+    tcpdump
+    tealdeer
+    tmux
+    tokei
+    tree
+    tree-sitter-cli
+    ttf-jetbrains-mono-nerd
     tuba
+    uv
+    valgrind
+    wireshark-cli
+    wireshark-qt
+    xclip
+    yq
+    zoxide
+    zsh
 )
 
 flatpak_packages=(
-    com.spotify.Client
-    com.slack.Slack
     com.discordapp.Discord
-    net.runelite.RuneLite
+    com.protonvpn.www
+    com.slack.Slack
+    com.spotify.Client
     com.ultimaker.cura
     me.proton.Pass
-    com.protonvpn.www
+    net.runelite.RuneLite
 )
 
 echo "Ranking mirrors..."
@@ -98,7 +93,7 @@ eos-update --aur
 echo "Installing pacman & AUR packages..."
 yay -S --needed --noconfirm "${yay_packages[@]}"
 
-echo "Installing flatpak packages..."
+echo "Installing Flatpak packages..."
 flatpak install -y "${flatpak_packages[@]}"
 
 echo "Setting up zsh..."
@@ -152,18 +147,9 @@ echo "Setting up SSH..."
 systemctl --user enable --now ssh-agent.socket
 if [[ ! -f ~/.ssh/id_ed25519 ]]; then
     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-    ssh-keygen -t ed25519 -C "${email}" -f ~/.ssh/id_ed25519
+    ssh-keygen -t ed25519 -C "emanuel.claesson@gmail.com" -f ~/.ssh/id_ed25519
     ssh-add ~/.ssh/id_ed25519
 fi
-
-echo "Setting up Git..."
-git config --global user.name "${name}"
-git config --global user.email "${email}"
-git config --global core.editor "${editor}"
-git config --global init.defaultBranch "main"
-git config --global push.autoSetupRemote true
-git config --global core.fsmonitor true
-git config --global diff.algorithm histogram
 
 echo "Misc setup..."
 tldr --update
@@ -174,7 +160,6 @@ sudo tee /etc/systemd/journald.conf.d/99-retention.conf > /dev/null <<EOF
 MaxRetentionSec=30day
 SystemMaxUse=500M
 EOF
-
 
 echo "Setting up Claude Code..."
 claude auth login
