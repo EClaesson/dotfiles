@@ -7,6 +7,7 @@ Show Menu Bar=true
 Show Status Bar=true
 Show Tab Bar=true
 Show Url Nav Bar=true
+Show welcome view for new window=false
 
 [KTextEditor Renderer]
 Animate Bracket Matching=false
