@@ -2,6 +2,7 @@
 set -euo pipefail
 
 yay_packages=(
+    akm
     asdf-vm
     asn-git
     aws-cli
@@ -16,6 +17,7 @@ yay_packages=(
     claude-agent-acp
     claude-code
     cmake
+    codelldb-bin
     filelight
     flatpak
     freecad
@@ -34,6 +36,7 @@ yay_packages=(
     krdc
     krfb
     ktorrent
+    lldb
     mariadb-clients
     mold
     mqttx-bin
@@ -48,6 +51,7 @@ yay_packages=(
     podman-compose
     podman-desktop
     postgresql-libs
+    proton-drive-sync-bin
     rclone
     scaleway-cli
     sdrangel-bin
@@ -82,21 +86,21 @@ flatpak_packages=(
     net.runelite.RuneLite
 )
 
-echo "Ranking mirrors..."
-sudo eos-rankmirrors
+echo "# Ranking mirrors..."
+sudo eos-rankmirrors --timeout 3
 sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
-sudo reflector --protocol https --age 12 --sort rate --country Sweden,Finland,Denmark,Norway,Germany --save /etc/pacman.d/mirrorlist
+sudo reflector --protocol https --age 12 --score 10 --sort score --country Sweden,Finland,Denmark,Norway,Germany,Netherlands,Belgium,France --save /etc/pacman.d/mirrorlist
 
-echo "Updating packages..."
+echo "# Updating packages..."
 eos-update --aur
 
-echo "Installing pacman & AUR packages..."
+echo "# Installing pacman & AUR packages..."
 yay -S --needed --noconfirm "${yay_packages[@]}"
 
-echo "Installing Flatpak packages..."
+echo "# Installing Flatpak packages..."
 flatpak install -y "${flatpak_packages[@]}"
 
-echo "Setting up zsh..."
+echo "# Setting up zsh..."
 if [[ "$SHELL" != "$(which zsh)" ]]; then
     chsh -s "$(which zsh)"
 fi
@@ -105,10 +109,20 @@ if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
     KEEP_ZSHRC=yes RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+declare -A zsh_plugins=(
+    [zsh-autosuggestions]="https://github.com/zsh-users/zsh-autosuggestions"
+    [zsh-syntax-highlighting]="https://github.com/zsh-users/zsh-syntax-highlighting.git"
+)
 
-echo "Setting up asdf..."
+for plugin in "${!zsh_plugins[@]}"; do
+    plugin_dir="$ZSH_CUSTOM/plugins/$plugin"
+    if [[ ! -d "$plugin_dir" ]]; then
+        git clone "${zsh_plugins[$plugin]}" "$plugin_dir"
+    fi
+done
+
+echo "# Setting up asdf..."
 declare -A asdf_urls=(
     [nodejs]="https://github.com/asdf-vm/asdf-nodejs.git"
     [erlang]="https://github.com/asdf-vm/asdf-erlang.git"
@@ -143,7 +157,7 @@ for component in rust-analyzer rust-src llvm-tools-preview; do
 done
 asdf reshim rust
 
-echo "Setting up SSH..."
+echo "# Setting up SSH..."
 systemctl --user enable --now ssh-agent.socket
 if [[ ! -f ~/.ssh/id_ed25519 ]]; then
     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
@@ -151,7 +165,7 @@ if [[ ! -f ~/.ssh/id_ed25519 ]]; then
     ssh-add ~/.ssh/id_ed25519
 fi
 
-echo "Misc setup..."
+echo "# Misc setup..."
 tldr --update
 
 sudo mkdir -p /etc/systemd/journald.conf.d
@@ -161,13 +175,29 @@ MaxRetentionSec=30day
 SystemMaxUse=500M
 EOF
 
-echo "Setting up Claude Code..."
-claude auth login
-claude setup-token
+echo "# Setting up Claude Code..."
+if ! claude auth status 2>/dev/null | jq -e '.loggedIn == true' >/dev/null; then
+    claude auth login
+fi
 
-echo "Manual setup"
-echo " * Put Claude Code token in ~./claude_code_token"
+token_file="$HOME/.claude_code_token"
+if [[ ! -s "$token_file" ]]; then
+    tmp_out=$(mktemp)
+    trap "rm -f '$tmp_out'" EXIT
+    claude setup-token > "$tmp_out"
+    token=$(grep -oE 'sk-ant-oat01-[A-Za-z0-9_-]+' "$tmp_out" | tail -n1)
+
+    if [[ -z "$token" ]]; then
+        echo "ERROR: Could not extract token. Run claude setup-token manually." >&2
+        exit 1
+    fi
+
+    umask 077
+    printf '%s\n' "$token" > "$token_file"
+fi
+
+echo "# Manual setup"
 echo " * Add ssh key to Github & Servers"
 echo " * Sign in to Firefox profile"
 
-echo "Done!"
+echo "# Done!"

@@ -8,5 +8,7 @@
 	defaultbranch = main
 [push]
 	autoSetupRemote = true
+[pull]
+	rebase = true
 [diff]
 	algorithm = histogram

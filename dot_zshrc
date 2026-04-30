@@ -26,6 +26,9 @@ export PODMAN_COMPOSE_WARNING_LOGS=false
 export EDITOR=nvim
 export VISUAL=$EDITOR
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export HISTFILE="/home/eclaesson/.zsh_history"
+export HISTSIZE=50000
+export SAVEHIST=10000
 
 source ${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/java/set-java-home.zsh
 source ${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/golang/set-env.zsh
@@ -37,7 +40,7 @@ alias update="eos-update --aur && \
     flatpak update && \
     sudo paccache -ruk0 && \
     sudo paccache -rk3 && \
-    yay -Su && \
+    yay -Sc && \
     flatpak uninstall --unused && \
     printf '\n:: Searching for orphans...\n' && \
     { sudo pacman -Qdtq || echo 'No orphans found'; }"
