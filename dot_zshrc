@@ -46,3 +46,8 @@ alias update="eos-update --aur && \
     { sudo pacman -Qdtq || echo 'No orphans found'; }"
 alias fwcheck="sudo fwupdmgr refresh && fwupdmgr get-updates"
 alias fwupdate="sudo fwupdmgr update"
+alias rankmirrors="sudo eos-rankmirrors --timeout 3 > /dev/null && \
+    echo 'Ranking arch mirrors...' && \
+    sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak && \
+    sudo reflector --protocol https --age 12 --score 10 --sort score --country Sweden,Finland,Denmark,Norway,Germany,Netherlands,Belgium,France --save /etc/pacman.d/mirrorlist && \
+    echo 'Saved mirrors to /etc/pacman.d/mirrorlist'"
