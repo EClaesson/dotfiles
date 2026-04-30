@@ -12,7 +12,6 @@ $directory\
 $git_branch\
 $git_status\
 $git_state\
-$package\
 [](bg:boat_yellow2 fg:oni_violet)\
 $kubernetes\
 $container\
@@ -53,16 +52,10 @@ format = "[($all_status$ahead_behind )]($style)"
 style = "bg:oni_violet fg:sumi_ink0"
 format = "\\([$state( $progress_current/$progress_total)]($style)\\) "
 
-[package]
-symbol = "󰏗"
-style = "bg:oni_violet fg:sumi_ink0"
-format = "[$symbol$version]($style) "
-display_private = true
-
 [kubernetes]
 symbol = ""
 style = "bg:boat_yellow2 fg:sumi_ink0"
-format = "[$symbol$context( \\($namespace\\))]($style) "
+format = "[$symbol $context( \\($namespace\\))]($style) "
 disabled = false
 detect_files = ["*kubernetes.yml", "*kubernetes.yaml"]
 
@@ -74,32 +67,32 @@ format = "[$symbol \\[$name\\]]($style) "
 [aws]
 symbol = ""
 style = "bg:boat_yellow2 fg:sumi_ink0"
-format = "[ $symbol($profile )(\\($region\\) )]($style)"
+format = "[ $symbol ($profile )(\\($region\\) )]($style)"
 
 [azure]
 symbol = ""
 style = "bg:boat_yellow2 fg:sumi_ink0"
-format = "[$symbol($subscription)]($style) "
+format = "[$symbol ($subscription)]($style) "
 
 [gcloud]
 symbol = ""
 style = "bg:boat_yellow2 fg:sumi_ink0"
-format = "[$symbol$account(@$domain)(\\($region\\))]($style) "
+format = "[$symbol $account(@$domain)(\\($region\\))]($style) "
 
 [openstack]
 symbol = ""
 style = "bg:boat_yellow2 fg:sumi_ink0"
-format = "[$symbol$cloud(\\($project\\))]($style) "
+format = "[$symbol $cloud(\\($project\\))]($style) "
 
 [terraform]
 symbol = ""
 style = "bg:boat_yellow2 fg:sumi_ink0"
-format = "[$symbol$workspace]($style) "
+format = "[$symbol $workspace]($style) "
 
 [python]
 symbol = ""
 style = "bg:boat_yellow2 fg:sumi_ink0"
-format = "[${symbol}($virtualenv )]($style) "
+format = "[${symbol} ($virtualenv )]($style) "
 
 [character]
 format = "$symbol"
