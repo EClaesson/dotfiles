@@ -24,6 +24,7 @@ yay_packages=(
     filelight
     flatpak
     freecad
+    gamemode
     ghidra
     gimp
     halloy
@@ -39,8 +40,11 @@ yay_packages=(
     krdc
     krfb
     ktorrent
+    lib32-gamemode
+    lib32-mangohud
     lldb
     lsp-plugins-lv2
+    mangohud
     mariadb-clients
     mold
     mqttx-bin
@@ -57,6 +61,7 @@ yay_packages=(
     podman-desktop
     postgresql-libs
     proton-drive-sync-bin
+    protontricks
     rclone
     scaleway-cli
     sdrangel-bin
@@ -191,6 +196,8 @@ sudo tee /etc/systemd/journald.conf.d/99-retention.conf > /dev/null <<EOF
 MaxRetentionSec=30day
 SystemMaxUse=500M
 EOF
+
+usermod -aG gamemode eclaesson
 
 echo "# Setting up Claude Code..."
 if ! claude auth status 2>/dev/null | jq -e '.loggedIn == true' >/dev/null; then
