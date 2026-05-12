@@ -7,6 +7,7 @@ yay_packages=(
     asn-git
     aws-cli
     balena-etcher
+    calf
     cargo-audit
     cargo-expand
     cargo-flamegraph
@@ -19,6 +20,7 @@ yay_packages=(
     claude-code
     cmake
     codelldb-bin
+    easyeffects
     filelight
     flatpak
     freecad
@@ -38,6 +40,7 @@ yay_packages=(
     krfb
     ktorrent
     lldb
+    lsp-plugins-lv2
     mariadb-clients
     mold
     mqttx-bin
@@ -45,6 +48,7 @@ yay_packages=(
     nmap
     onlyoffice-bin
     opentofu
+    piper
     plasma-weather-plus
     plasma6-applets-plasmusic-toolbar
     plasma6-applets-resources-monitor
@@ -69,11 +73,15 @@ yay_packages=(
     tuba
     uv
     valgrind
+    virtual-surround-manager
+    vivaldi
+    vk-hdr-layer-kwin6-git
     wireshark-cli
     wireshark-qt
     wl-clipboard
     xclip
     yq
+    zam-plugins-lv2
     zoxide
     zsh
 )
