@@ -14,6 +14,7 @@ yay_packages=(
     cargo-machete
     cargo-nextest
     cinny-desktop-bin
+    cnijfilter-ts7450series
     claude-agent-acp
     claude-code
     cmake
@@ -70,10 +71,15 @@ yay_packages=(
     valgrind
     wireshark-cli
     wireshark-qt
+    wl-clipboard
     xclip
     yq
     zoxide
     zsh
+)
+
+yay_remove_packages=(
+    tldr
 )
 
 flatpak_packages=(
@@ -93,6 +99,9 @@ sudo reflector --protocol https --age 12 --score 10 --sort score --country Swede
 
 echo "# Updating packages..."
 eos-update --aur
+
+echo "# Removing pacman & AUR packages..."
+yay -Rns tldr --noconfirm "${yay_remove_packages[@]}" 2>/dev/null || true
 
 echo "# Installing pacman & AUR packages..."
 yay -S --needed --noconfirm "${yay_packages[@]}"
