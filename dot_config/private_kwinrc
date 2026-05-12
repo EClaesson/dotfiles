@@ -23,6 +23,14 @@ NightTemperature=4000
 
 [Plugins]
 mouseclickEnabled=true
+mousetilerEnabled=true
+rememberwindowpositionsEnabled=true
+
+[Script-mousetiler]
+gridTilerOpacity=80
+popupGridAt=1
+showTextHint=false
+verticalAlignment=0
 
 [TabBox]
 ShowDesktopMode=1
