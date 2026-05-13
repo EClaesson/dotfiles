@@ -14,3 +14,15 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
 		end
 	end,
 })
+
+vim.api.nvim_create_autocmd("ModeChanged", {
+	pattern = "*",
+	callback = function()
+		if
+			((vim.v.event.old_mode == "s" and vim.v.event.new_mode == "n") or vim.v.event.old_mode == "i")
+			and vim.snippet.active()
+		then
+			vim.snippet.stop()
+		end
+	end,
+})
