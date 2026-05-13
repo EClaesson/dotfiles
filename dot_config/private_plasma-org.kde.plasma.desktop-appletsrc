@@ -144,7 +144,7 @@ immutability=1
 plugin=org.kde.plasma.icontasks
 
 [Containments][2][Applets][5][Configuration][General]
-launchers=preferred://filemanager,applications:org.kde.konsole.desktop,preferred://browser,file:///var/lib/flatpak/exports/share/applications/com.spotify.Client.desktop,applications:org.squidowl.halloy.desktop,file:///var/lib/flatpak/exports/share/applications/com.discordapp.Discord.desktop
+launchers=preferred://filemanager,applications:org.kde.konsole.desktop,applications:firefox.desktop,file:///var/lib/flatpak/exports/share/applications/com.spotify.Client.desktop,applications:org.squidowl.halloy.desktop,file:///var/lib/flatpak/exports/share/applications/com.discordapp.Discord.desktop,applications:steam.desktop
 
 [Containments][2][Applets][6]
 immutability=1
@@ -225,10 +225,10 @@ DialogHeight=630
 DialogWidth=810
 
 [Containments][2][Applets][7][General]
-disabledStatusNotifiers=spotify-client
+disabledStatusNotifiers=spotify-client,steam
 extraItems=org.kde.kdeconnect,org.kde.plasma.battery,org.kde.plasma.networkmanagement,org.kde.kscreen,org.kde.plasma.manage-inputmethod,org.kde.plasma.keyboardlayout,org.kde.plasma.clipboard,org.kde.plasma.brightness,org.kde.plasma.cameraindicator,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.printmanager,org.kde.plasma.volume,org.kde.plasma.bluetooth,org.kde.plasma.notifications
 knownItems=org.kde.kdeconnect,org.kde.plasma.notifications,org.kde.plasma.weather,org.kde.plasma.battery,org.kde.plasma.networkmanagement,org.kde.plasma.bluetooth,org.kde.kscreen,org.kde.plasma.manage-inputmethod,org.kde.plasma.volume,org.kde.plasma.keyboardlayout,org.kde.plasma.clipboard,org.kde.plasma.brightness,org.kde.plasma.cameraindicator,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.printmanager,org.kde.plasma.mediacontroller
-shownItems=org.kde.plasma.volume,chrome_status_icon_1,proton.vpn.app.gtk,org.kde.plasma.notifications
+shownItems=org.kde.plasma.volume,chrome_status_icon_1,proton.vpn.app.gtk,org.kde.plasma.notifications,Easy Effects
 
 [Containments][2][General]
 AppletOrder=3;4;5;35;36;33;34;7;6;32;21;22

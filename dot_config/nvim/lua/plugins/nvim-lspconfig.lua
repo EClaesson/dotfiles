@@ -88,6 +88,7 @@ return {
 			yamlls = {},
 			docker_compose_language_service = {},
 			docker_language_server = {},
+			taplo = {},
 
 			lua_ls = {
 				on_init = function(client)

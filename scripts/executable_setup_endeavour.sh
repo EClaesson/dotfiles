@@ -25,6 +25,7 @@ yay_packages=(
     flatpak
     freecad
     gamemode
+    gamescope
     ghidra
     gimp
     halloy
@@ -41,9 +42,12 @@ yay_packages=(
     krfb
     ktorrent
     lib32-gamemode
+    lib32-gamescope-plus
     lib32-mangohud
     lldb
     lsp-plugins-lv2
+    luarocks
+    lutris
     mangohud
     mariadb-clients
     mold
