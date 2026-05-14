@@ -1,7 +1,7 @@
 [Appearance]
 BoldIntense=true
 ColorScheme=KanagawaWave
-Font=JetBrainsMono Nerd Font,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0
+Font=JetBrainsMono Nerd Font,10.8,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0
 UseFontLineChararacters=true
 
 [Cursor Options]

@@ -9,6 +9,6 @@ visiblePlugin=limiter#0
 
 [Window]
 autostartOnLogin=true
-height=1018
+height=955
 visiblePipeWirePage=testSignalsPage
 width=2412

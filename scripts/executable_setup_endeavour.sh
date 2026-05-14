@@ -14,6 +14,7 @@ yay_packages=(
     cargo-llvm-cov
     cargo-machete
     cargo-nextest
+    carla
     cinny-desktop-bin
     cnijfilter-ts7450series
     claude-agent-acp
@@ -28,7 +29,10 @@ yay_packages=(
     gamescope
     ghidra
     gimp
+    guitarix
+    gxplugins.lvs2
     halloy
+    heroic-games-launcher-bin
     htop
     imhex
     informant
@@ -67,6 +71,7 @@ yay_packages=(
     proton-drive-sync-bin
     protontricks
     rclone
+    realtime-privileges
     scaleway-cli
     sdrangel-bin
     sdrconnect
@@ -201,7 +206,14 @@ MaxRetentionSec=30day
 SystemMaxUse=500M
 EOF
 
+sudo tee /etc/security/limits.d/audio.conf > /dev/null <<EOF
+@audio   -  rtprio     95
+@audio   -  memlock    unlimited
+EOF
+
 usermod -aG gamemode eclaesson
+usermod -aG realtime eclaesson
+usermod -aG audio eclaesson
 
 echo "# Setting up Claude Code..."
 if ! claude auth status 2>/dev/null | jq -e '.loggedIn == true' >/dev/null; then
