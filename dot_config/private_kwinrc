@@ -11,7 +11,9 @@ CornerBarrier=false
 EdgeBarrier=0
 
 [Effect-mouseclick]
-RingSize=50
+RingCount=6
+RingLife=500
+RingSize=60
 ShowText=false
 
 [Effect-overview]
@@ -27,9 +29,13 @@ mousetilerEnabled=true
 rememberwindowpositionsEnabled=true
 
 [Script-mousetiler]
+gridAllColumns=8
+gridColumns=4
 gridTilerOpacity=80
 popupGridAt=1
 showTextHint=false
+suggestionsVisibility=2
+tilerVisibility=3
 verticalAlignment=0
 
 [TabBox]
@@ -93,10 +99,14 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
+[Windows]
+ElectricBorderMaximize=false
+ElectricBorderTiling=false
+
 [Windows_HDR]
 MaxFrameAverage=0
-MaxLuminance=400
-Reference=400
+MaxLuminance=418
+Reference=418
 
 [Xwayland]
 Scale=1

@@ -94,6 +94,7 @@ yay_packages=(
     wireshark-qt
     wl-clipboard
     xclip
+    yt-dlp
     yq
     zam-plugins-lv2
     zoxide
