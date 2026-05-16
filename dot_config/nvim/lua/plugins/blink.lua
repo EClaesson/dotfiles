@@ -26,6 +26,7 @@ return {
 	opts = {
 		keymap = {
 			preset = "default",
+			["<C-Tab>"] = { "snippet_forward", "fallback" },
 		},
 		appearance = {
 			nerd_font_variant = "mono",
