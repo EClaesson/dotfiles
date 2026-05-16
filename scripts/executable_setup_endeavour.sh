@@ -58,6 +58,7 @@ yay_packages=(
     mqttx-bin
     neovim
     nmap
+    obisidan
     onlyoffice-bin
     opentofu
     piper
