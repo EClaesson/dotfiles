@@ -40,7 +40,7 @@ alias update="eos-update --aur && \
     flatpak update && \
     sudo paccache -ruk0 && \
     sudo paccache -rk3 && \
-    yay -Sc && \
+    yay -Sc --noconfirm && \
     flatpak uninstall --unused && \
     printf '\n:: Searching for orphans...\n' && \
     { sudo pacman -Qdtq || echo 'No orphans found'; }"
