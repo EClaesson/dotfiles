@@ -26,6 +26,7 @@ return {
 	opts = {
 		keymap = {
 			preset = "default",
+			["<Tab>"] = false,
 			["<C-Tab>"] = { "snippet_forward", "fallback" },
 		},
 		appearance = {
