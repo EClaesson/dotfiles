@@ -3,6 +3,7 @@ set -euo pipefail
 
 yay_packages=(
     akm
+    android-studio
     asdf-vm
     asn-git
     aws-cli
@@ -95,6 +96,7 @@ yay_packages=(
     wireshark-qt
     wl-clipboard
     xclip
+    yamllint
     yt-dlp
     yq
     zam-plugins-lv2

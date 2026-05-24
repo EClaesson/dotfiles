@@ -23,6 +23,13 @@ return {
 			desc = "[N]eotest run [F]ile",
 		},
 		{
+			"<leader>na",
+			function()
+				require("neotest").run.run(vim.uv.cwd())
+			end,
+			desc = "[N]eotest run [A]ll",
+		},
+		{
 			"<leader>ns",
 			function()
 				require("neotest").summary.toggle()

@@ -76,19 +76,21 @@ return {
 		})
 
 		local servers = {
-			clangd = {},
-			gopls = {},
-			pyright = {},
-			ts_ls = {},
-			elixirls = {},
-			eslint = {},
 			bashls = {},
-			html = {},
-			jsonls = {},
-			yamlls = {},
+			clangd = {},
 			docker_compose_language_service = {},
 			docker_language_server = {},
+			elixirls = {},
+			eslint = {},
+			gopls = {},
+			html = {},
+			jsonls = {},
+			postgres_lsp = {},
+			pyright = {},
 			taplo = {},
+			tofu_ls = {},
+			vtsls = {},
+			yamlls = {},
 
 			lua_ls = {
 				on_init = function(client)
@@ -123,6 +125,7 @@ return {
 		}
 
 		local tools = {
+			"prettier",
 			"stylua",
 		}
 

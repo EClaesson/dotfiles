@@ -6,7 +6,7 @@ nPoints=200
 inputDevice=alsa_input.usb-Harman_International_Inc_JBL_Quantum810_Wireless-00.mono-chat-input
 
 [StreamOutputs]
-outputDevice=alsa_output.usb-Harman_International_Inc_JBL_Quantum810_Wireless-00.stereo-chat-output
+outputDevice=alsa_output.usb-Harman_International_Inc_JBL_Quantum810_Wireless-00.stereo-game-output
 plugins=equalizer#0,loudness#0,bass_enhancer#0,limiter#0
 visiblePage=pluginsPage
 visiblePlugin=limiter#0

@@ -11,7 +11,7 @@ return {
 			crates = {
 				enabled = true,
 				max_results = 8,
-				main_chars = 4,
+				min_chars = 4,
 			},
 		},
 	},
