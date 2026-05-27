@@ -81,7 +81,24 @@ return {
 			docker_compose_language_service = {},
 			docker_language_server = {},
 			elixirls = {},
-			eslint = {},
+			eslint = {
+				settings = {
+					workingDirectory = {
+						mode = "auto",
+					},
+				},
+				root_dir = require("lspconfig.util").root_pattern(
+					"eslint.config.js",
+					"eslint.config.mjs",
+					"eslint.config.cjs",
+					".eslintrc",
+					".eslintrc.js",
+					".eslintrc.cjs",
+					".eslintrc.json",
+					"eslint.config.ts",
+					"package.json"
+				),
+			},
 			gopls = {},
 			html = {},
 			jsonls = {},
@@ -125,6 +142,16 @@ return {
 		}
 
 		local tools = {
+			"delve",
+			"gofumpt",
+			"goimports",
+			"golangci-lint",
+			"gomodifytags",
+			"gotests",
+			"gotestsum",
+			"iferr",
+			"impl",
+			"json-to-struct",
 			"prettier",
 			"stylua",
 		}
