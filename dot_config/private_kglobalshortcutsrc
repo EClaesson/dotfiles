@@ -47,6 +47,8 @@ show_kt=Alt+Shift+T,Alt+Shift+T,Show/Hide KTorrent
 
 [kwin]
 Activate Window Demanding Attention=Meta+Ctrl+A,Meta+Ctrl+A,Activate Window Demanding Attention
+ClearLastMouseMark=Meta+Shift+F12,Meta+Shift+F12,Clear Last Mouse Mark
+ClearMouseMarks=Meta+Shift+F11,Meta+Shift+F11,Clear Mouse Marks
 Cycle Overview=none,none,Cycle through Overview and Grid View
 Cycle Overview Opposite=none,none,Cycle through Grid View and Overview
 Decrease Opacity=,,Decrease Opacity of Active Window by 5%
@@ -139,7 +141,7 @@ Switch to Screen to the Right=,,Switch to Screen to the Right
 Toggle Night Color=none,none,Suspend/Resume Night Light
 Toggle Window Raise/Lower=,,Toggle Window Raise/Lower
 ToggleMouseClick=Meta+*,Meta+*,Toggle Mouse Click Animation
-TrackMouse=none,none,Track mouse
+TrackMouse=,none,Track mouse
 Walk Through Windows=Meta+Tab\tAlt+Tab,Meta+Tab\tAlt+Tab,Walk Through Windows
 Walk Through Windows (Reverse)=Meta+Shift+Tab\tAlt+Shift+Tab,Meta+Shift+Tab\tAlt+Shift+Tab,Walk Through Windows (Reverse)
 Walk Through Windows Alternative=none,none,Walk Through Windows Alternative
