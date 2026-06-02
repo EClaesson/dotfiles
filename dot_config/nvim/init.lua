@@ -2,6 +2,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 
+IS_WORK_MACHINE = vim.startswith(vim.uv.os_gethostname(), "GSEUC")
+
 require("config.options")
 require("config.keymaps")
 require("config.autocmds")

@@ -26,13 +26,24 @@ return {
 			},
 		},
 		adapters = {
-			acp = {
+			acp = IS_WORK_MACHINE and {
+				github_copilot = function()
+					return require("codecompanion.adapters").extend("copilot_acp", {})
+				end,
+			} or {
 				claude_code = function()
 					return require("codecompanion.adapters").extend("claude_code", {})
 				end,
 			},
 		},
-		interactions = {
+		interactions = IS_WORK_MACHINE and {
+			chat = {
+				adapter = "github_copilot",
+			},
+			inline = {
+				adapter = "github_copilot",
+			},
+		} or {
 			chat = {
 				adapter = "claude_code",
 			},
