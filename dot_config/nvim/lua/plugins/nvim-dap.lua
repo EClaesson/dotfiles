@@ -7,32 +7,32 @@ return {
 	},
 	keys = {
 		{
-			"<F5>",
+			"<leader>ds",
 			function()
 				require("dap").continue()
 			end,
-			desc = "Debug: Start/Continue",
+			desc = "Debug: [S]tart/Continue",
 		},
 		{
-			"<F1>",
+			"<leader>di",
 			function()
 				require("dap").step_into()
 			end,
-			desc = "Debug: Step Into",
+			desc = "Debug: Step [I]nto",
 		},
 		{
-			"<F2>",
+			"<leader>do",
 			function()
 				require("dap").step_over()
 			end,
-			desc = "Debug: Step Over",
+			desc = "Debug: Step [O]ver",
 		},
 		{
-			"<F3>",
+			"<leader>du",
 			function()
 				require("dap").step_out()
 			end,
-			desc = "Debug: Step Out",
+			desc = "Debug: Step O[u]t",
 		},
 		{
 			"<leader>db",
@@ -49,11 +49,11 @@ return {
 			desc = "Set [B]reakpoint",
 		},
 		{
-			"<F7>",
+			"<leader>dt",
 			function()
 				require("dapui").toggle()
 			end,
-			desc = "Debug: See last session result.",
+			desc = "[T]oggle DAP UI",
 		},
 	},
 	config = function()

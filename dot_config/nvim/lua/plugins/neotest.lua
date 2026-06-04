@@ -13,35 +13,35 @@ return {
 			function()
 				require("neotest").run.run()
 			end,
-			desc = "[N]eotest [R]un nearest",
+			desc = "Neotest [R]un Nearest",
 		},
 		{
 			"<leader>nf",
 			function()
 				require("neotest").run.run(vim.fn.expand("%"))
 			end,
-			desc = "[N]eotest run [F]ile",
+			desc = "Neotest Run [F]ile",
 		},
 		{
 			"<leader>na",
 			function()
 				require("neotest").run.run(vim.uv.cwd())
 			end,
-			desc = "[N]eotest run [A]ll",
+			desc = "Neotest Run [A]ll",
 		},
 		{
 			"<leader>ns",
 			function()
 				require("neotest").summary.toggle()
 			end,
-			desc = "[N]eotest [S]ummary",
+			desc = "Neotest [S]ummary",
 		},
 		{
 			"<leader>no",
 			function()
 				require("neotest").output.open({ enter = true })
 			end,
-			desc = "[N]eotest [O]utput",
+			desc = "Neotest [O]utput",
 		},
 	},
 	config = function()

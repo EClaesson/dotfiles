@@ -17,13 +17,13 @@ return {
 	},
 	lazy = false,
 	keys = {
-		{ "ö", "<cmd>Oil<cr>", desc = "Open Oil (current dir)" },
+		{ "ö", "<cmd>Oil<cr>", desc = "Open Oil (Current Dir)" },
 		{
 			"Ö",
 			function()
 				require("oil").open(vim.uv.cwd())
 			end,
-			desc = "Open Oil (cwd)",
+			desc = "Open Oil (CWD)",
 		},
 	},
 	opts = {

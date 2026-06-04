@@ -6,8 +6,8 @@ return {
 	},
 	cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions" },
 	keys = {
-		{ "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", desc = "[A]I [C]hat" },
-		{ "<leader>ai", "<cmd>CodeCompanion<cr>", desc = "[A]I [I]nline", mode = { "n", "v" } },
+		{ "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", desc = "AI [C]hat" },
+		{ "<leader>ai", "<cmd>CodeCompanion<cr>", desc = "AI [I]nline", mode = { "n", "v" } },
 	},
 	opts = {
 		display = {

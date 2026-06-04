@@ -22,7 +22,7 @@ return {
 					function()
 						require("telescope-tabs").list_tabs()
 					end,
-					desc = "[S]earch T[a]bs",
+					desc = "Search T[a]bs",
 				},
 			},
 			config = function()
@@ -39,20 +39,20 @@ return {
 		},
 	},
 	keys = {
-		{ "<leader>su", "<cmd>Telescope undo<cr>", desc = "[S]earch [U]ndo history" },
+		{ "<leader>su", "<cmd>Telescope undo<cr>", desc = "Search [U]ndo History" },
 		{
 			"<leader>sh",
 			function()
 				require("telescope.builtin").help_tags()
 			end,
-			desc = "[S]earch [H]elp",
+			desc = "Search [H]elp",
 		},
 		{
 			"<leader>sk",
 			function()
 				require("telescope.builtin").keymaps()
 			end,
-			desc = "[S]earch [K]eymaps",
+			desc = "Search [K]eymaps",
 		},
 		{
 			"<leader>sf",
@@ -61,21 +61,21 @@ return {
 					find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
 				})
 			end,
-			desc = "[S]earch [F]iles",
+			desc = "Search [F]iles",
 		},
 		{
 			"<leader>sF",
 			function()
 				require("telescope.builtin").find_files({ hidden = true, no_ignore = true })
 			end,
-			desc = "[S]earch [F]iles (no ignore)",
+			desc = "Search [F]iles (No Ignore)",
 		},
 		{
 			"<leader>ss",
 			function()
 				require("telescope.builtin").builtin()
 			end,
-			desc = "[S]earch [S]elect Telescope",
+			desc = "Search [S]elect Telescope",
 		},
 		{
 			"<leader>sw",
@@ -83,14 +83,14 @@ return {
 				require("telescope.builtin").grep_string()
 			end,
 			mode = { "n", "v" },
-			desc = "[S]earch current [W]ord",
+			desc = "Search Current [W]ord",
 		},
 		{
 			"<leader>sg",
 			function()
 				require("telescope.builtin").live_grep({ additional_args = { "--hidden", "--glob=!.git/*" } })
 			end,
-			desc = "[S]earch by [G]rep",
+			desc = "Search By [G]rep",
 		},
 		{
 			"<leader>sG",
@@ -99,35 +99,35 @@ return {
 					additional_args = { "--hidden", "--glob=!.git/*", "--no-ignore" },
 				})
 			end,
-			desc = "[S]earch by [G]rep (no ignore)",
+			desc = "Search By [G]rep (No Ignore)",
 		},
 		{
 			"<leader>sd",
 			function()
 				require("telescope.builtin").diagnostics()
 			end,
-			desc = "[S]earch [D]iagnostics",
+			desc = "Search [D]iagnostics",
 		},
 		{
 			"<leader>sr",
 			function()
 				require("telescope.builtin").resume()
 			end,
-			desc = "[S]earch [R]esume",
+			desc = "Search [R]esume",
 		},
 		{
 			"<leader>s.",
 			function()
 				require("telescope.builtin").oldfiles()
 			end,
-			desc = '[S]earch Recent Files ("." for repeat)',
+			desc = '[S]earch Recent Files ("." For Repeat)',
 		},
 		{
 			"<leader>sc",
 			function()
 				require("telescope.builtin").commands()
 			end,
-			desc = "[S]earch [C]ommands",
+			desc = "Search [C]ommands",
 		},
 		{
 			"<leader><leader>",
@@ -145,8 +145,8 @@ return {
 			end,
 			desc = "[ ] Find existing buffers",
 		},
-		{ "<leader>sy", "<cmd>Telescope neoclip<cr>", desc = "[S]earch [Y]anks" },
-		{ "<leader>st", "<cmd>TodoTelescope<cr>", desc = "[S]earch [T]odos" },
+		{ "<leader>sy", "<cmd>Telescope neoclip<cr>", desc = "Search [Y]anks" },
+		{ "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Search [T]odos" },
 		{
 			"<leader>/",
 			function()
@@ -155,7 +155,7 @@ return {
 					previewer = false,
 				}))
 			end,
-			desc = "[/] Fuzzily search in current buffer",
+			desc = "[/] Fuzzy Search in Buffer",
 		},
 		{
 			"<leader>s/",
@@ -165,14 +165,70 @@ return {
 					prompt_title = "Live Grep in Open Files",
 				})
 			end,
-			desc = "[S]earch [/] in Open Files",
+			desc = "Search [/] in Open Files",
 		},
 		{
 			"<leader>sn",
 			function()
 				require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config") })
 			end,
-			desc = "[S]earch [N]eovim files",
+			desc = "Search [N]eovim Files",
+		},
+		{
+			"<leader>sb",
+			function()
+				require("telescope.builtin").git_bcommits()
+			end,
+			desc = "Search [B]uffer Commits",
+		},
+		{
+			"<leader>sS",
+			function()
+				require("telescope.builtin").git_status()
+			end,
+			desc = "Search Git [S]tatus",
+		},
+		{
+			"<leader>s:",
+			function()
+				require("telescope.builtin").command_history()
+			end,
+			desc = "Search [:] Command History",
+		},
+		{
+			"<leader>s?",
+			function()
+				require("telescope.builtin").search_history()
+			end,
+			desc = "Search [?] History",
+		},
+		{
+			"<leader>sj",
+			function()
+				require("telescope.builtin").jumplist()
+			end,
+			desc = "Search [J]umplist",
+		},
+		{
+			"<leader>si",
+			function()
+				require("telescope.builtin").lsp_incoming_calls()
+			end,
+			desc = "Search [I]ncoming Calls",
+		},
+		{
+			"<leader>sO",
+			function()
+				require("telescope.builtin").lsp_outgoing_calls()
+			end,
+			desc = "Search [O]utgoing Calls",
+		},
+		{
+			"<leader>sm",
+			function()
+				require("telescope.builtin").treesitter()
+			end,
+			desc = "Search Treesitter Sy[m]bols",
 		},
 	},
 	config = function()

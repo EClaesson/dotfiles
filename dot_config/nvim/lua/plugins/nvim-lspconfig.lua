@@ -21,27 +21,30 @@ return {
 					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
 
-				map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
-				map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
-				map("grD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-				map("grr", function()
-					require("telescope.builtin").lsp_references()
-				end, "[G]oto [R]eferences")
-				map("gri", function()
-					require("telescope.builtin").lsp_implementations()
-				end, "[G]oto [I]mplementation")
-				map("grd", function()
+				map("<leader>cn", vim.lsp.buf.rename, "Re[n]ame")
+				local ca = vim.fn.maparg("<leader>ca", "n", false, true)
+				if vim.tbl_isempty(ca) or ca.buffer ~= 1 then
+					map("<leader>ca", vim.lsp.buf.code_action, "Code [A]ction", { "n", "x" })
+				end
+				map("<leader>cd", function()
 					require("telescope.builtin").lsp_definitions()
-				end, "[G]oto [D]efinition")
-				map("gO", function()
-					require("telescope.builtin").lsp_document_symbols()
-				end, "[O]pen Document Symbols")
-				map("gW", function()
-					require("telescope.builtin").lsp_dynamic_workspace_symbols()
-				end, "Open [W]orkspace Symbols")
-				map("grt", function()
+				end, "Goto [D]efinition")
+				map("<leader>cD", vim.lsp.buf.declaration, "Goto [D]eclaration")
+				map("<leader>cr", function()
+					require("telescope.builtin").lsp_references()
+				end, "Goto [R]eferences")
+				map("<leader>ci", function()
+					require("telescope.builtin").lsp_implementations()
+				end, "Goto [I]mplementation")
+				map("<leader>cy", function()
 					require("telescope.builtin").lsp_type_definitions()
-				end, "[G]oto [T]ype Definition")
+				end, "Goto T[y]pe Definition")
+				map("<leader>cS", function()
+					require("telescope.builtin").lsp_document_symbols()
+				end, "Document [S]ymbols")
+				map("<leader>cw", function()
+					require("telescope.builtin").lsp_dynamic_workspace_symbols()
+				end, "[W]orkspace Symbols")
 
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
 				if client and client:supports_method("textDocument/documentHighlight", event.buf) then
@@ -70,7 +73,7 @@ return {
 				if client and client:supports_method("textDocument/inlayHint", event.buf) then
 					map("<leader>th", function()
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-					end, "[T]oggle Inlay [H]ints")
+					end, "Toggle Inlay [H]ints")
 				end
 			end,
 		})

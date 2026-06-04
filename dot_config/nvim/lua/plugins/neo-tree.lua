@@ -9,7 +9,7 @@ return {
 	},
 	cmd = "Neotree",
 	keys = {
-		{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle file [E]xplorer" },
+		{ "<leader>ö", "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
 	},
 	opts = {
 		close_if_last_window = true,
