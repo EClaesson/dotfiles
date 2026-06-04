@@ -35,6 +35,7 @@ yay_packages=(
     halloy
     heroic-games-launcher-bin
     htop
+    hugo
     imhex
     informant
     jq
