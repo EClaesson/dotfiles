@@ -90,6 +90,8 @@ yay_packages=(
     tuba
     uv
     valgrind
+    ventoy-bin
+    veracrypt
     virtual-surround-manager
     vivaldi
     vk-hdr-layer-kwin6-git
