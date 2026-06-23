@@ -43,7 +43,9 @@ alias update="eos-update --aur && \
     yay -Sc --noconfirm && \
     flatpak uninstall --unused && \
     printf '\n:: Searching for orphans...\n' && \
-    { sudo pacman -Qdtq || echo 'No orphans found'; }"
+    { sudo pacman -Qdtq || echo 'No orphans found'; } && \
+    printf '\n:: Cleaning up partial downloads...\n' && \
+    sudo rm -rf /var/cache/pacman/pkg/download-*"
 alias fwcheck="sudo fwupdmgr refresh && fwupdmgr get-updates"
 alias fwupdate="sudo fwupdmgr update"
 alias rankmirrors="sudo eos-rankmirrors --timeout 3 > /dev/null && \

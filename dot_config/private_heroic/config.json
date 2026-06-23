@@ -31,7 +31,7 @@
     "winePrefix": "/home/eclaesson/Games/Heroic/Prefixes/shared",
     "wineVersion": {
       "bin": "/usr/bin/wine",
-      "name": "wine-11.8",
+      "name": "wine-11.11",
       "type": "wine",
       "wineserver": "/usr/bin/wineserver"
     },
@@ -44,6 +44,7 @@
     "eacRuntime": true,
     "battlEyeRuntime": true,
     "framelessWindow": false,
+    "hideWindowOnProtocolLaunch": false,
     "beforeLaunchScriptPath": "",
     "afterLaunchScriptPath": "",
     "disableUMU": false,

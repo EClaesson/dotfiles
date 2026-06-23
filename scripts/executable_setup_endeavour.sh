@@ -26,6 +26,7 @@ yay_packages=(
     filelight
     flatpak
     freecad
+    freerdp
     gamemode
     gamescope
     ghidra
@@ -50,6 +51,7 @@ yay_packages=(
     lib32-gamemode
     lib32-gamescope-plus
     lib32-mangohud
+    libva-utils
     lldb
     lsp-plugins-lv2
     luarocks
@@ -216,6 +218,13 @@ EOF
 sudo tee /etc/security/limits.d/audio.conf > /dev/null <<EOF
 @audio   -  rtprio     95
 @audio   -  memlock    unlimited
+EOF
+
+sudo mkdir -p /etc/systemd/timesyncd.conf.d
+sudo tee /etc/systemd/timesyncd.conf.d/10-homeserver.conf > /dev/null <<EOF
+[Time]
+NTP=homeserver.local.devices.eclaesson.com
+FallbackNTP=ntp.se 0.pool.ntp.org
 EOF
 
 usermod -aG gamemode eclaesson
