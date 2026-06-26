@@ -5,6 +5,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 plugins=(asdf colored-man-pages git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 eval "$(starship init zsh)"
+eval "$(scw autocomplete script shell=zsh)"
 eval "$(zoxide init zsh --cmd cd)"
 
 setopt HIST_IGNORE_DUPS

@@ -8,5 +8,21 @@ AnimationMethod=DocumentView::GLAnimation
 [MainWindow]
 MenuBar=Disabled
 
+[Recent Files]
+File1[$e]=$HOME/Projects/eclaesson_com/public/images/social_card_bg_hu_4dafc5d047f5a4de.webp
+File2[$e]=$HOME/Projects/eclaesson_com/public/images/social_card_bg_hu_8aba08ce1079ff35.webp
+File3[$e]=$HOME/Projects/eclaesson_com/public/images/social_card_bg_hu_c09db0faec526468.webp
+File4[$e]=$HOME/Projects/eclaesson_com/public/images/social_card_bg_hu_d59e3f0494cd9a57.webp
+File5[$e]=$HOME/Projects/eclaesson_com/public/images/social_card_bg_hu_fc51c4744d43e0a7.webp
+File6[$e]=$HOME/Projects/eclaesson_com/public/images/social_card_bg_hu_3e523dd1f1ff18dd.webp
+File7[$e]=$HOME/Downloads/Screen Shot 2026-06-26 at 16.09.33-fullpage.png
+Name1[$e]=social_card_bg_hu_4dafc5d047f5a4de.webp
+Name2[$e]=social_card_bg_hu_8aba08ce1079ff35.webp
+Name3[$e]=social_card_bg_hu_c09db0faec526468.webp
+Name4[$e]=social_card_bg_hu_d59e3f0494cd9a57.webp
+Name5[$e]=social_card_bg_hu_fc51c4744d43e0a7.webp
+Name6[$e]=social_card_bg_hu_3e523dd1f1ff18dd.webp
+Name7[$e]=Screen Shot 2026-06-26 at 16.09.33-fullpage.png
+
 [SideBar]
 InformationSplitterSizes=210,245

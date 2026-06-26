@@ -63,6 +63,8 @@ chartFace=org.kde.ksysguard.horizontalbars
 
 [Face-106123488899456][SensorColors]
 disk/0388b2d2-d648-444b-b79a-eea6bbd1be19/used=126,156,216
+disk/c7e8-6e02/used=156,216,126
+disk/faec-cce9/used=216,126,156
 
 [Face-106123488899456][Sensors]
 highPrioritySensorIds=["disk/(?!all).*/used"]

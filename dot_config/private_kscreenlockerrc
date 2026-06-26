@@ -1,5 +1,5 @@
 [Daemon]
-Timeout=10
+Timeout=15
 
 [Greeter][Wallpaper][org.kde.image][General]
 Image=file:///home/eclaesson/.local/share/wallpapers/kanagawa.jpg

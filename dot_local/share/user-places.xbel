@@ -87,6 +87,17 @@
    </metadata>
   </info>
  </bookmark>
+ <bookmark href="file:///home/eclaesson/Projects">
+  <title>Projects</title>
+  <info>
+   <metadata owner="http://freedesktop.org">
+    <bookmark:icon name="inode-directory"/>
+   </metadata>
+   <metadata owner="http://www.kde.org">
+    <ID>1781180521/0</ID>
+   </metadata>
+  </info>
+ </bookmark>
  <bookmark href="file:///home/eclaesson/Videos">
   <title>Videos</title>
   <info>

@@ -144,7 +144,7 @@ immutability=1
 plugin=org.kde.plasma.icontasks
 
 [Containments][2][Applets][5][Configuration][General]
-launchers=preferred://filemanager,applications:org.kde.konsole.desktop,applications:firefox.desktop,file:///var/lib/flatpak/exports/share/applications/com.spotify.Client.desktop,applications:org.squidowl.halloy.desktop,file:///var/lib/flatpak/exports/share/applications/com.discordapp.Discord.desktop,applications:steam.desktop,applications:heroic.desktop
+launchers=preferred://filemanager,applications:org.kde.konsole.desktop,applications:firefox.desktop,file:///var/lib/flatpak/exports/share/applications/com.spotify.Client.desktop,applications:obsidian.desktop,applications:org.squidowl.halloy.desktop,file:///var/lib/flatpak/exports/share/applications/com.discordapp.Discord.desktop,applications:steam.desktop,applications:heroic.desktop
 
 [Containments][2][Applets][6]
 immutability=1
@@ -164,6 +164,9 @@ wallpaperplugin=org.kde.image
 [Containments][2][Applets][7][Applets][11]
 immutability=1
 plugin=org.kde.plasma.networkmanagement
+
+[Containments][2][Applets][7][Applets][11][Configuration][General]
+currentDetailsTab=details
 
 [Containments][2][Applets][7][Applets][12]
 immutability=1
