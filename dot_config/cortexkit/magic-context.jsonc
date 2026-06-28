@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cortexkit/magic-context/master/assets/magic-context.schema.json",
+  "historian": {
+    "model": "openrouter/deepseek/deepseek-v4-flash",
+    "variant": "no-think",
+    "two_pass": true,
+    "fallback_models": [
+      "openrouter/deepseek/deepseek-v4-pro"
+    ]
+  },
+  "dreamer": {
+    "model": "openrouter/deepseek/deepseek-v4-flash",
+    "variant": "think",
+    "fallback_models": [
+      "openrouter/z-ai/glm-5.2"
+    ]
+  },
+  "sidekick": {
+    "model": "openrouter/deepseek/deepseek-v4-pro",
+    "variant": "no-think",
+    "fallback_models": [
+      "openrouter/deepseek/deepseek-v4-flash"
+    ]
+  }
+}

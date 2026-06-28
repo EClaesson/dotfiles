@@ -64,6 +64,7 @@ yay_packages=(
     nmap
     obisidan
     onlyoffice-bin
+    opencode
     opentofu
     piper
     plasma-weather-plus
@@ -80,6 +81,8 @@ yay_packages=(
     scaleway-cli
     sdrangel-bin
     sdrconnect
+    shellcheck
+    shfmt
     starship
     steam
     tcpdump
@@ -151,8 +154,8 @@ fi
 
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 declare -A zsh_plugins=(
-    [zsh-autosuggestions]="https://github.com/zsh-users/zsh-autosuggestions"
-    [zsh-syntax-highlighting]="https://github.com/zsh-users/zsh-syntax-highlighting.git"
+    [zsh - autosuggestions]="https://github.com/zsh-users/zsh-autosuggestions"
+    [zsh - syntax - highlighting]="https://github.com/zsh-users/zsh-syntax-highlighting.git"
 )
 
 for plugin in "${!zsh_plugins[@]}"; do
@@ -209,19 +212,19 @@ echo "# Misc setup..."
 tldr --update
 
 sudo mkdir -p /etc/systemd/journald.conf.d
-sudo tee /etc/systemd/journald.conf.d/99-retention.conf > /dev/null <<EOF
+sudo tee /etc/systemd/journald.conf.d/99-retention.conf >/dev/null <<EOF
 [Journal]
 MaxRetentionSec=30day
 SystemMaxUse=500M
 EOF
 
-sudo tee /etc/security/limits.d/audio.conf > /dev/null <<EOF
+sudo tee /etc/security/limits.d/audio.conf >/dev/null <<EOF
 @audio   -  rtprio     95
 @audio   -  memlock    unlimited
 EOF
 
 sudo mkdir -p /etc/systemd/timesyncd.conf.d
-sudo tee /etc/systemd/timesyncd.conf.d/10-homeserver.conf > /dev/null <<EOF
+sudo tee /etc/systemd/timesyncd.conf.d/10-homeserver.conf >/dev/null <<EOF
 [Time]
 NTP=homeserver.local.devices.eclaesson.com
 FallbackNTP=ntp.se 0.pool.ntp.org
@@ -240,7 +243,7 @@ token_file="$HOME/.claude_code_token"
 if [[ ! -s "$token_file" ]]; then
     tmp_out=$(mktemp)
     trap "rm -f '$tmp_out'" EXIT
-    claude setup-token > "$tmp_out"
+    claude setup-token >"$tmp_out"
     token=$(grep -oE 'sk-ant-oat01-[A-Za-z0-9_-]+' "$tmp_out" | tail -n1)
 
     if [[ -z "$token" ]]; then
@@ -249,7 +252,7 @@ if [[ ! -s "$token_file" ]]; then
     fi
 
     umask 077
-    printf '%s\n' "$token" > "$token_file"
+    printf '%s\n' "$token" >"$token_file"
 fi
 
 echo "# Manual setup"

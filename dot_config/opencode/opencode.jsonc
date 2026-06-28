@@ -1,0 +1,60 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "edit": "ask",
+    "bash": "ask"
+  },
+  "disabled_providers": [
+    "opencode"
+  ],
+  "model": "openrouter/z-ai/glm-5.2",
+  "small_model": "openrouter/deepseek/deepseek-v4-flash",
+  "compaction": {
+    "auto": false,
+    "prune": false
+  },
+  "plugin": [
+    "@cortexkit/opencode-magic-context@0.29.1",
+    "cc-safety-net@1.0.6"
+  ],
+  "provider": {
+    "openrouter": {
+      "whitelist": [
+        "z-ai/glm-5.2",
+        "anthropic/claude-opus-4.8",
+        "deepseek/deepseek-v4-flash",
+        "deepseek/deepseek-v4-pro",
+      ],
+      "models": {
+        "openrouter/z-ai/glm-5.2": {},
+        "anthropic/claude-opus-4.8": {},
+        "deepseek/deepseek-v4-flash": {
+          "variants": {
+            "no-think": {
+              "reasoning": {
+                "enabled": false
+              }
+            },
+            "think": {
+              "reasoning": {
+                "enabled": true
+              }
+            }
+          }
+        },
+        "deepseek/deepseek-v4-pro": {
+          "variants": {
+            "no-think": {
+              "reasoning": {
+                "enabled": false
+              }
+            },
+            "think": {
+              "reasoning": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

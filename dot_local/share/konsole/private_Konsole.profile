@@ -18,3 +18,6 @@ TerminalRows=32
 [Interaction Options]
 ColorFilterEnabled=false
 CopyTextAsHTML=false
+
+[Terminal Features]
+BellMode=3
