@@ -11,9 +11,9 @@ gpu/gpu0/usedVram=61,174,233
 gpu/gpu1/usedVram=126,156,216
 
 [Face-94549915155056][Sensors]
-highPrioritySensorIds=["gpu/gpu1/usedVram"]
+highPrioritySensorIds=["gpu/gpu0/usedVram"]
 lowPrioritySensorIds=[]
-totalSensors=["gpu/gpu1/usedVram","gpu/gpu1/totalVram"]
+totalSensors=["gpu/gpu0/usedVram","gpu/gpu0/totalVram"]
 
 [Face-94549915155056][org.kde.ksysguard.piechart][General]
 showLegend=false
@@ -31,9 +31,9 @@ gpu/gpu0/temperature=61,174,233
 gpu/gpu1/temperature=126,156,216
 
 [Face-94549958436304][Sensors]
-highPrioritySensorIds=["gpu/gpu1/temperature"]
+highPrioritySensorIds=["gpu/gpu0/temperature"]
 lowPrioritySensorIds=[]
-totalSensors=["gpu/gpu1/temperature"]
+totalSensors=["gpu/gpu0/temperature"]
 
 [Face-94549958436304][org.kde.ksysguard.piechart][General]
 showLegend=false
@@ -47,7 +47,7 @@ gpu/gpu0/usage=61,174,233
 gpu/gpu1/usage=126,156,216
 
 [Face-94549965033408][Sensors]
-highPrioritySensorIds=["gpu/gpu1/usage"]
+highPrioritySensorIds=["gpu/gpu0/usage"]
 lowPrioritySensorIds=[]
 totalSensors=[]
 
@@ -65,7 +65,7 @@ chartFace=org.kde.ksysguard.textonly
 
 [Face-94549969077840][Sensors]
 highPrioritySensorIds=[]
-lowPrioritySensorIds=["gpu/gpu1/name","gpu/gpu1/usage","gpu/gpu1/coreFrequency","gpu/gpu1/usedVram","gpu/gpu1/temperature"]
+lowPrioritySensorIds=["gpu/gpu0/name","gpu/gpu0/usage","gpu/gpu0/coreFrequency","gpu/gpu0/usedVram","gpu/gpu0/temperature"]
 totalSensors=[]
 
 [Face-94549998694368][Appearance]
@@ -79,7 +79,7 @@ gpu/gpu1/coreFrequency=126,156,216
 gpu/gpu1/memoryFrequency=216,186,126
 
 [Face-94549998694368][Sensors]
-highPrioritySensorIds=["gpu/gpu1/coreFrequency","gpu/gpu1/memoryFrequency"]
+highPrioritySensorIds=["gpu/gpu0/coreFrequency","gpu/gpu0/memoryFrequency"]
 lowPrioritySensorIds=[]
 totalSensors=[]
 
