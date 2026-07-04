@@ -12,5 +12,6 @@ return {
 	},
 	opts = {
 		kind = "tab",
+		graph_style = "unicode",
 	},
 }

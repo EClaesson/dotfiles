@@ -3,7 +3,7 @@ return {
 	keys = {
 		{ "<leader>Rs", desc = "[S]end Request" },
 		{ "<leader>Ra", desc = "Send [A]ll Requests" },
-		{ "<leader>Rb", desc = "Open [B]uffer Scratchpad" },
+		{ "<leader>Rb", desc = "Open Scratchpad [B]uffer" },
 	},
 	ft = { "http", "rest" },
 	opts = {

@@ -33,7 +33,7 @@ return {
 			function()
 				require("flash").treesitter_search()
 			end,
-			desc = "Treesitter Search",
+			desc = "Flash Treesitter Search",
 		},
 		{
 			"<c-s>",

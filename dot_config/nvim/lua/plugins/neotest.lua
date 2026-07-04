@@ -6,6 +6,9 @@ return {
 		"antoinemadec/FixCursorHold.nvim",
 		"nvim-treesitter/nvim-treesitter",
 		"mrcjkb/rustaceanvim",
+		"fredrikaverpil/neotest-golang",
+		"marilari88/neotest-vitest",
+		"nvim-neotest/neotest-jest",
 	},
 	keys = {
 		{
@@ -48,6 +51,9 @@ return {
 		require("neotest").setup({
 			adapters = {
 				require("rustaceanvim.neotest"),
+				require("neotest-golang"),
+				require("neotest-vitest"),
+				require("neotest-jest"),
 			},
 		})
 	end,

@@ -17,6 +17,8 @@ return {
 				window = {
 					width = 0.25,
 				},
+				show_settings = true,
+				show_token_count = true,
 			},
 			diff = {
 				enabled = true,
@@ -28,6 +30,10 @@ return {
 			},
 			action_palette = {
 				provider = "telescope",
+				opts = {
+					show_preset_actions = true,
+					show_preset_prompts = true,
+				},
 			},
 		},
 		prompt_library = {
@@ -45,15 +51,30 @@ return {
 				},
 			},
 			acp = IS_WORK_MACHINE and {
+				opts = {
+					show_presets = false,
+				},
 				github_copilot = function()
-					return require("codecompanion.adapters").extend("copilot_acp", {})
+					return require("codecompanion.adapters").extend("copilot_acp", {
+						defaults = {
+							session_config_options = {
+								model = "claude-opus-4.8",
+							},
+						},
+					})
 				end,
 			} or {
 				opts = {
 					show_presets = false,
 				},
 				claude_code = function()
-					return require("codecompanion.adapters").extend("claude_code", {})
+					return require("codecompanion.adapters").extend("claude_code", {
+						defaults = {
+							session_config_options = {
+								model = "claude-opus-4-8",
+							},
+						},
+					})
 				end,
 				opencode = function()
 					return require("codecompanion.adapters").extend("opencode", {
@@ -64,19 +85,17 @@ return {
 				end,
 			},
 		},
-		interactions = IS_WORK_MACHINE and {
+		interactions = {
 			chat = {
-				adapter = "github_copilot",
+				adapter = IS_WORK_MACHINE and "github_copilot" or "opencode",
+				opts = {
+					context_management = {
+						enabled = false,
+					},
+				},
 			},
 			inline = {
-				adapter = "github_copilot",
-			},
-		} or {
-			chat = {
-				adapter = "opencode",
-			},
-			inline = {
-				adapter = "opencode",
+				adapter = IS_WORK_MACHINE and "github_copilot" or "opencode",
 			},
 		},
 	},

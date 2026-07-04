@@ -7,6 +7,7 @@ return {
 		},
 		"mason-org/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		"b0o/schemastore.nvim",
 		{
 			"j-hui/fidget.nvim",
 			opts = {},
@@ -104,13 +105,31 @@ return {
 			},
 			gopls = {},
 			html = {},
-			jsonls = {},
+			cssls = {},
+			tailwindcss = {},
+			svelte = {},
+			astro = {},
+			jsonls = {
+				settings = {
+					json = {
+						schemas = require("schemastore").json.schemas(),
+						validate = { enable = true },
+					},
+				},
+			},
 			postgres_lsp = {},
 			pyright = {},
 			taplo = {},
 			tofu_ls = {},
 			vtsls = {},
-			yamlls = {},
+			yamlls = {
+				settings = {
+					yaml = {
+						schemaStore = { enable = false, url = "" },
+						schemas = require("schemastore").yaml.schemas(),
+					},
+				},
+			},
 
 			lua_ls = {
 				on_init = function(client)
@@ -156,6 +175,7 @@ return {
 			"impl",
 			"json-to-struct",
 			"prettier",
+			"eslint_d",
 			"stylua",
 		}
 

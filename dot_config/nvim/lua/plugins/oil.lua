@@ -1,5 +1,6 @@
 return {
-	"stevearc/oil.nvim",
+	"barrettruth/canola.nvim",
+	-- "stevearc/oil.nvim",
 	dependencies = {
 		{ "nvim-mini/mini.icons" },
 		{
@@ -16,6 +17,9 @@ return {
 		},
 	},
 	lazy = false,
+	config = function(_, opts)
+		require("oil").setup(opts)
+	end,
 	keys = {
 		{ "ö", "<cmd>Oil<cr>", desc = "Open Oil (Current Dir)" },
 		{
