@@ -17,7 +17,6 @@ return {
 				window = {
 					width = 0.25,
 				},
-				show_settings = true,
 				show_token_count = true,
 			},
 			diff = {
