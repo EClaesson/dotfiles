@@ -34,7 +34,7 @@ export SAVEHIST=10000
 source ${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/java/set-java-home.zsh
 source ${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/golang/set-env.zsh
 
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 alias docker=podman
 alias update="eos-update --aur && \

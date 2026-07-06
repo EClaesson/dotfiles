@@ -9,12 +9,6 @@ yay_packages=(
     aws-cli
     balena-etcher
     calf
-    cargo-audit
-    cargo-expand
-    cargo-flamegraph
-    cargo-llvm-cov
-    cargo-machete
-    cargo-nextest
     carla
     cinny-desktop-bin
     cnijfilter-ts7450series
@@ -78,6 +72,7 @@ yay_packages=(
     protontricks
     rclone
     realtime-privileges
+    rustup
     scaleway-cli
     sdrangel-bin
     sdrconnect
@@ -108,6 +103,7 @@ yay_packages=(
     yt-dlp
     yq
     zam-plugins-lv2
+    zig
     zoxide
     zsh
 )
@@ -172,7 +168,6 @@ declare -A asdf_urls=(
     [elixir]="https://github.com/asdf-vm/asdf-elixir.git"
     [java]="https://github.com/halcyon/asdf-java.git"
     [golang]="https://github.com/asdf-community/asdf-golang.git"
-    [rust]="https://github.com/code-lever/asdf-rust.git"
 )
 
 declare -A asdf_versions=(
@@ -192,13 +187,26 @@ for tool in "${!asdf_urls[@]}"; do
     asdf set -u "${tool}" "${resolved}"
 done
 
-for component in rust-analyzer rust-src llvm-tools-preview; do
+echo "# Setting up Rust..."
+rustup toolchain install stable
+
+for target in x86_64-unknown-linux-musl x86_64-pc-windows-gnu aarch64-apple-darwin; do
+    echo "  Installing rust target: ${target}"
+    rustup target add ${target}
+done
+
+for component in rust-analyzer rust-src llvm-tools; do
     if ! rustup component list --installed 2>/dev/null | grep -q "^${component}"; then
         echo "  Installing rust component: ${component}"
         rustup component add "${component}"
     fi
 done
-asdf reshim rust
+
+for plugin in cargo-zigbuild cargo-audit cargo-nextest cargo-llvm-cov flamegraph; do
+    echo "  Installing cargo plugin: ${plugin}"
+    cargo install ${plugin} --locked
+done
+ln -sf "$(command -v rustup)" ~/.cargo/bin/rust-analyzer
 
 echo "# Setting up SSH..."
 systemctl --user enable --now ssh-agent.socket
