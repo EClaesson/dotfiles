@@ -2,7 +2,7 @@
 BoldIntense=true
 ColorScheme=KanagawaWave
 Font=JetBrainsMono Nerd Font,10.8,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0
-UseFontLineChararacters=true
+UseFontLineChararacters=false
 
 [Cursor Options]
 CustomCursorColor=200,192,147
@@ -13,6 +13,7 @@ UseCustomCursorColor=false
 Name=Konsole
 Parent=FALLBACK/
 TerminalColumns=120
+TerminalMargin=1
 TerminalRows=32
 
 [Interaction Options]
