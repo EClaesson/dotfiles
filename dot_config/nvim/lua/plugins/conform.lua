@@ -103,6 +103,7 @@ return {
 			json = { "prettier" },
 			jsonc = { "prettier" },
 			yaml = { "prettier" },
+			http = { "kulala-fmt" },
 		},
 	},
 }

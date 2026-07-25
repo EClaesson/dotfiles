@@ -33,6 +33,7 @@ yay_packages=(
     hugo
     imhex
     informant
+    josm
     jq
     kamoso
     kcharselect
@@ -60,6 +61,7 @@ yay_packages=(
     onlyoffice-bin
     opencode
     opentofu
+    osmium-tool
     piper
     plasma-weather-plus
     plasma6-applets-plasmusic-toolbar

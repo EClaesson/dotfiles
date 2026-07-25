@@ -11,6 +11,10 @@
 - Verify code changes by running the project's tests and lints before claiming a task done.
 - Write all prose — chat replies, comments, commit messages, and docs — in English. Keep responses short and impersonal.
 
+# Memory
+
+- Use the `ctx_memory` command to store information about any durable decision regarding architecture, constraints, configuration or information otherwise useful in future sessions of the project.
+
 # Bash
 
 - Start every script with the `#!/usr/bin/env bash` shebang and `set -euo pipefail`.

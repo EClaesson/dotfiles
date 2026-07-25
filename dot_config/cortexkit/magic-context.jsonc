@@ -12,8 +12,43 @@
     "model": "openrouter/deepseek/deepseek-v4-flash",
     "variant": "think",
     "fallback_models": [
-      "openrouter/z-ai/glm-5.2"
-    ]
+      "openrouter/deepseek/deepseek-v4-pro"
+    ],
+    "tasks": {
+      "map-memories": {
+        "schedule": "0 */6 * * *"
+      },
+      "verify": {
+        "schedule": "0 */6 * * *"
+      },
+      "verify-broad": {
+        "schedule": "0 4 * * 0"
+      },
+      "curate": {
+        "schedule": "0 3 * * *"
+      },
+      "classify-memories": {
+        "schedule": "0 */6 * * *"
+      },
+      "retrospective": {
+        "schedule": "0 */6 * * *"
+      },
+      "maintain-docs": {
+        "schedule": ""
+      },
+      "evaluate-smart-notes": {
+        "schedule": "0 */6 * * *"
+      },
+      "review-user-memories": {
+        "schedule": "0 */6 * * *"
+      },
+      "promote-primers": {
+        "schedule": "0 */6 * * *"
+      },
+      "refresh-primers": {
+        "schedule": "0 */6 * * *"
+      }
+    }
   },
   "sidekick": {
     "model": "openrouter/deepseek/deepseek-v4-pro",
@@ -21,5 +56,9 @@
     "fallback_models": [
       "openrouter/deepseek/deepseek-v4-flash"
     ]
+  },
+  "execute_threshold_percentage": 65,
+  "execute_threshold_tokens": {
+    "openrouter/moonshotai/kimi-k3": 100000
   }
 }

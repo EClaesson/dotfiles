@@ -57,7 +57,7 @@ return {
 					return require("codecompanion.adapters").extend("copilot_acp", {
 						defaults = {
 							session_config_options = {
-								model = "claude-opus-4.8",
+								model = "claude-opus-5",
 							},
 						},
 					})
@@ -70,7 +70,7 @@ return {
 					return require("codecompanion.adapters").extend("claude_code", {
 						defaults = {
 							session_config_options = {
-								model = "claude-opus-4-8",
+								model = "claude-opus-5",
 							},
 						},
 					})
@@ -78,7 +78,7 @@ return {
 				opencode = function()
 					return require("codecompanion.adapters").extend("opencode", {
 						defaults = {
-							model = "openrouter/z-ai/glm-5.2",
+							model = "openrouter/moonshotai/kimi-k3",
 						},
 					})
 				end,

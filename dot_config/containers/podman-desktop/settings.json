@@ -5,11 +5,11 @@
     "remindAt": 1777211640787,
     "disabled": true
   },
-  "releaseNotesBanner.show": "1.26.2",
+  "releaseNotesBanner.show": "1.28.2",
   "extensions.ignoreBannerRecommendations": true,
   "window.bounds": {
-    "x": 435,
-    "y": 171,
+    "x": 16,
+    "y": 10,
     "width": 1050,
     "height": 700
   },
