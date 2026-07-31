@@ -5,7 +5,8 @@
     "bash": "ask",
   },
   "disabled_providers": ["opencode"],
-  "model": "openrouter/moonshotai/kimi-k3",
+  "model": "openai/gpt-5.6-terra",
+  //"model": "openrouter/moonshotai/kimi-k3",
   //"model": "openrouter/z-ai/glm-5.2",
   "small_model": "openrouter/deepseek/deepseek-v4-flash",
   "compaction": {
@@ -17,6 +18,7 @@
     "openrouter": {
       "whitelist": [
         //"z-ai/glm-5.2",
+        "openai/gpt-5.6-terra",
         "moonshotai/kimi-k3",
         "anthropic/claude-opus-5",
         "deepseek/deepseek-v4-flash",
@@ -24,6 +26,7 @@
       ],
       "models": {
         //"openrouter/z-ai/glm-5.2": {},
+        "openai/gpt-5.6-terra": {},
         "moonshotai/kimi-k3": {},
         "anthropic/claude-opus-5": {},
         "deepseek/deepseek-v4-flash": {
