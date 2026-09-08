@@ -103,6 +103,7 @@ return {
 			json = { "prettier" },
 			jsonc = { "prettier" },
 			yaml = { "prettier" },
+			python = { "ruff_organize_imports", "ruff_format" },
 			http = { "kulala-fmt" },
 		},
 	},

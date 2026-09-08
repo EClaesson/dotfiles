@@ -86,7 +86,7 @@ return {
 		},
 		interactions = {
 			chat = {
-				adapter = IS_WORK_MACHINE and "github_copilot" or "opencode",
+				adapter = IS_WORK_MACHINE and "github_copilot" or "claude_code",
 				opts = {
 					context_management = {
 						enabled = false,
@@ -94,7 +94,7 @@ return {
 				},
 			},
 			inline = {
-				adapter = IS_WORK_MACHINE and "github_copilot" or "opencode",
+				adapter = IS_WORK_MACHINE and "github_copilot" or "claude_code",
 			},
 		},
 	},
