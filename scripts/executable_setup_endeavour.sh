@@ -16,6 +16,8 @@ yay_packages=(
     claude-code
     cmake
     codelldb-bin
+    docker
+    docker-compose
     easyeffects
     filelight
     flatpak
@@ -57,6 +59,7 @@ yay_packages=(
     mqttx-bin
     neovim
     nmap
+    nomad
     obisidan
     onlyoffice-bin
     opencode

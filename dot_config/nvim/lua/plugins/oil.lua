@@ -1,5 +1,5 @@
 return {
-	"barrettruth/canola.nvim",
+	"https://forge.barrettruth.com/barrettruth/canola.nvim",
 	-- "stevearc/oil.nvim",
 	dependencies = {
 		{ "nvim-mini/mini.icons" },
