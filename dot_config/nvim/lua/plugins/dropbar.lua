@@ -17,7 +17,4 @@ return {
 			desc = "Pick Symbols in Winbar",
 		},
 	},
-	config = function()
-		vim.ui.select = require("dropbar.utils.menu").select
-	end,
 }

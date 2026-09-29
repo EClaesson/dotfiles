@@ -9,6 +9,7 @@ return {
 		"fredrikaverpil/neotest-golang",
 		"marilari88/neotest-vitest",
 		"nvim-neotest/neotest-jest",
+		"nvim-neotest/neotest-python",
 	},
 	keys = {
 		{
@@ -54,6 +55,7 @@ return {
 				require("neotest-golang"),
 				require("neotest-vitest"),
 				require("neotest-jest"),
+				require("neotest-python"),
 			},
 		})
 	end,

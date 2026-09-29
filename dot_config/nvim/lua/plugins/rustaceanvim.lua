@@ -3,6 +3,7 @@ vim.g.rustaceanvim = {
 		default_settings = {
 			["rust-analyzer"] = {
 				procMacro = { enable = true },
+				check = { command = "clippy" },
 			},
 		},
 	},
@@ -10,6 +11,5 @@ vim.g.rustaceanvim = {
 
 return {
 	"mrcjkb/rustaceanvim",
-	lazy = true,
-	ft = "rust",
+	lazy = false,
 }

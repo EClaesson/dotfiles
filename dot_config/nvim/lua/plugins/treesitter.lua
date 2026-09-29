@@ -20,6 +20,7 @@ return {
 			"gotmpl",
 			"gowork",
 			"html",
+			"http",
 			"javascript",
 			"json",
 			"latex",
@@ -52,7 +53,7 @@ return {
 			local has_indent_query = vim.treesitter.query.get(language, "indents") ~= nil
 
 			if has_indent_query then
-				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+				vim.bo[buf].indentexpr ="v:lua.require'nvim-treesitter'.indentexpr()"
 			end
 		end
 

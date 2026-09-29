@@ -70,7 +70,7 @@ return {
 					return require("codecompanion.adapters").extend("claude_code", {
 						defaults = {
 							session_config_options = {
-								model = "claude-opus-5",
+								model = "claude-opus-5.5",
 							},
 						},
 					})

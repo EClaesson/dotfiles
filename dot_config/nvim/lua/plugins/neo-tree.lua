@@ -5,7 +5,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		"MunifTanjim/nui.nvim",
 		"nvim-tree/nvim-web-devicons",
-		"antosha417/nvim-lsp-file-operations",
+		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	cmd = "Neotree",
 	keys = {
@@ -20,6 +20,7 @@ return {
 			width = 34,
 		},
 		filesystem = {
+			hijack_netrw_behavior = "disabled",
 			filtered_items = {
 				hide_dotfiles = false,
 				hide_gitignored = false,

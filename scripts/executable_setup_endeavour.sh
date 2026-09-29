@@ -11,6 +11,7 @@ yay_packages=(
     calf
     carla
     cinny-desktop-bin
+    cni-plugins
     cnijfilter-ts7450series
     claude-agent-acp
     claude-code
@@ -37,6 +38,7 @@ yay_packages=(
     informant
     josm
     jq
+    just
     kamoso
     kcharselect
     kicad
@@ -55,6 +57,7 @@ yay_packages=(
     lutris
     mangohud
     mariadb-clients
+    mkcert
     mold
     mqttx-bin
     neovim

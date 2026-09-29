@@ -1,6 +1,12 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	enabled = true,
+	init = function()
+		vim.ui.select = function(...)
+			require("telescope")
+			return vim.ui.select(...)
+		end
+	end,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		{
@@ -249,6 +255,6 @@ return {
 
 		require("telescope").load_extension("undo")
 		pcall(require("telescope").load_extension, "fzf")
-		pcall(require("telescope").load_extension, "ui-select")
+		require("telescope").load_extension("ui-select")
 	end,
 }

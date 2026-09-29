@@ -1,6 +1,10 @@
 return {
 	"nvim-mini/mini.nvim",
 	event = "VeryLazy",
+	module = false,
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter-textobjects",
+	},
 	keys = {
 		{
 			"<leader>bd",
@@ -18,7 +22,14 @@ return {
 		},
 	},
 	config = function()
-		require("mini.ai").setup({ n_lines = 500 })
+		local ai = require("mini.ai")
+		ai.setup({
+			n_lines = 500,
+			custom_textobjects = {
+				F = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }),
+				c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }),
+			},
+		})
 		require("mini.surround").setup({
 			mappings = {
 				add = "gsa",
@@ -28,8 +39,8 @@ return {
 				highlight = "gsh",
 				replace = "gsr",
 
-				suffix_last = "gsl",
-				suffix_next = "gsn",
+				suffix_last = "l",
+				suffix_next = "n",
 			},
 		})
 		require("mini.splitjoin").setup()
@@ -41,7 +52,6 @@ return {
 		})
 		require("mini.cursorword").setup()
 		require("mini.trailspace").setup()
-		require("mini.diff").setup()
 		require("mini.bufremove").setup({
 			silent = true,
 		})

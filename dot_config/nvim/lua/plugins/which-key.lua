@@ -17,12 +17,11 @@ return {
 			{ "<leader>R", group = "[R]EST" },
 			{ "<leader>s", group = "[S]earch", mode = { "n", "v" } },
 			{ "<leader>t", group = "[T]oggle" },
-			{ "<leader>T", group = "[T]erminal", mode = { "n", "t" } },
+			{ "<leader>T", group = "[T]erminal", mode = { "n" } },
 			{ "<leader>u", group = "R[u]n" },
 			{ "<leader>x", group = "E[x]amine" },
 			{ "gr", group = "LSP [A]ctions", mode = { "n", "x" } },
 			{ "gs", group = "[S]urround" },
-			{ "K", group = "Hover Action" },
 		},
 	},
 }

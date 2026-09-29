@@ -177,14 +177,29 @@ return {
 			"<leader>ir",
 			function()
 				local name = vim.fn.input("New tab name: ")
-				vim.cmd("LualineRenameTab " .. name)
+				if name == "" then
+					vim.t.tabname = nil
+					vim.cmd.redrawtabline()
+				else
+					vim.cmd("LualineRenameTab " .. name)
+				end
 			end,
 			desc = "[R]ename Tab",
 		},
 	},
 	opts = {
 		sections = {
-			lualine_b = { "diff" },
+			lualine_b = {
+				{
+					"diff",
+					source = function()
+						local status = vim.b.gitsigns_status_dict
+						if status then
+							return { added = status.added, modified = status.changed, removed = status.removed }
+						end
+					end,
+				},
+			},
 			lualine_c = {
 				{
 					"filename",

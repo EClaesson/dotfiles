@@ -2,7 +2,6 @@ return {
 	"https://forge.barrettruth.com/barrettruth/canola.nvim",
 	-- "stevearc/oil.nvim",
 	dependencies = {
-		{ "nvim-mini/mini.icons" },
 		{
 			"malewicz1337/oil-git.nvim",
 			opts = {

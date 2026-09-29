@@ -8,10 +8,7 @@ return {
 		"mason-org/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		"b0o/schemastore.nvim",
-		{
-			"j-hui/fidget.nvim",
-			opts = {},
-		},
+		"saghen/blink.cmp",
 	},
 	config = function()
 		vim.api.nvim_create_autocmd("LspAttach", {
@@ -49,6 +46,7 @@ return {
 
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
 				if client and client:supports_method("textDocument/documentHighlight", event.buf) then
+					vim.b[event.buf].minicursorword_disable = true
 					local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
 					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 						buffer = event.buf,
@@ -67,6 +65,7 @@ return {
 						callback = function(event2)
 							vim.lsp.buf.clear_references()
 							vim.api.nvim_clear_autocmds({ group = "lsp-highlight", buffer = event2.buf })
+							vim.b[event2.buf].minicursorword_disable = nil
 						end,
 					})
 				end
@@ -85,24 +84,7 @@ return {
 			docker_compose_language_service = {},
 			docker_language_server = {},
 			elixirls = {},
-			eslint = {
-				settings = {
-					workingDirectory = {
-						mode = "auto",
-					},
-				},
-				root_dir = require("lspconfig.util").root_pattern(
-					"eslint.config.js",
-					"eslint.config.mjs",
-					"eslint.config.cjs",
-					".eslintrc",
-					".eslintrc.js",
-					".eslintrc.cjs",
-					".eslintrc.json",
-					"eslint.config.ts",
-					"package.json"
-				),
-			},
+			eslint = {},
 			gopls = {},
 			html = {},
 			cssls = {},
@@ -110,15 +92,27 @@ return {
 			svelte = {},
 			astro = {},
 			jsonls = {
+				before_init = function(_, config)
+					config.settings.json.schemas = require("schemastore").json.schemas()
+				end,
 				settings = {
 					json = {
-						schemas = require("schemastore").json.schemas(),
+						schemas = {},
 						validate = { enable = true },
 					},
 				},
 			},
 			postgres_lsp = {},
-			pyright = {},
+			pyright = {
+				before_init = function(_, config)
+					local python = config.root_dir and vim.fs.joinpath(config.root_dir, ".venv", "bin", "python")
+					if python and vim.uv.fs_stat(python) then
+						config.settings.python = vim.tbl_deep_extend("force", config.settings.python or {}, {
+							pythonPath = python,
+						})
+					end
+				end,
+			},
 			ruff = {
 				on_attach = function(client)
 					client.server_capabilities.hoverProvider = false
@@ -126,12 +120,73 @@ return {
 			},
 			taplo = {},
 			tofu_ls = {},
-			vtsls = {},
+			vtsls = {
+				settings = (function()
+					local inlay_hints = {
+						parameterNames = { enabled = "literals" },
+						parameterTypes = { enabled = true },
+						variableTypes = { enabled = false },
+						propertyDeclarationTypes = { enabled = true },
+						functionLikeReturnTypes = { enabled = true },
+						enumMemberValues = { enabled = true },
+					}
+					return {
+						typescript = { inlayHints = inlay_hints },
+						javascript = { inlayHints = inlay_hints },
+					}
+				end)(),
+			},
 			yamlls = {
+				-- The CloudFormation/SAM schemas only know the long intrinsic form ({ "Fn::Join": ... }),
+				-- so short-form tags like `!Join [...]` produce false "Incorrect type" errors.
+				handlers = {
+					["textDocument/publishDiagnostics"] = function(err, result, ctx)
+						local bufnr = vim.uri_to_bufnr(result.uri)
+						result.diagnostics = vim.tbl_filter(function(d)
+							if not vim.startswith(d.message, "Incorrect type.") then
+								return true
+							end
+							local line = vim.api.nvim_buf_get_lines(bufnr, d.range.start.line, d.range.start.line + 1, false)[1]
+							return not (line and line:find("!%u%a*"))
+						end, result.diagnostics)
+						vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx)
+					end,
+				},
+				before_init = function(_, config)
+					config.settings.yaml.schemas = require("schemastore").yaml.schemas()
+				end,
 				settings = {
 					yaml = {
 						schemaStore = { enable = false, url = "" },
-						schemas = require("schemastore").yaml.schemas(),
+						schemas = {},
+						customTags = {
+							"!And sequence",
+							"!Base64 scalar",
+							"!Base64 mapping",
+							"!Cidr sequence",
+							"!Condition scalar",
+							"!Equals sequence",
+							"!FindInMap sequence",
+							"!GetAtt scalar",
+							"!GetAtt sequence",
+							"!GetAZs scalar",
+							"!GetAZs mapping",
+							"!If sequence",
+							"!ImportValue scalar",
+							"!ImportValue mapping",
+							"!Join sequence",
+							"!Length sequence",
+							"!Not sequence",
+							"!Or sequence",
+							"!Ref scalar",
+							"!Select sequence",
+							"!Split sequence",
+							"!Sub scalar",
+							"!Sub sequence",
+							"!ToJsonString mapping",
+							"!ToJsonString sequence",
+							"!Transform mapping",
+						},
 					},
 				},
 			},
@@ -155,7 +210,7 @@ return {
 						},
 						workspace = {
 							checkThirdParty = false,
-							library = vim.tbl_extend("force", vim.api.nvim_get_runtime_file("", true), {
+							library = vim.list_extend(vim.api.nvim_get_runtime_file("", true), {
 								"${3rd}/luv/library",
 								"${3rd}/busted/library",
 							}),
@@ -163,7 +218,9 @@ return {
 					})
 				end,
 				settings = {
-					Lua = {},
+					Lua = {
+						hint = { enable = true },
+					},
 				},
 			},
 		}
@@ -182,6 +239,11 @@ return {
 			"prettier",
 			"eslint_d",
 			"stylua",
+			"yamllint",
+			"cfn-lint",
+			"shellcheck",
+			"shfmt",
+			"sql-formatter",
 		}
 
 		local ensure_installed = vim.tbl_keys(servers or {})

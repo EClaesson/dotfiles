@@ -2,27 +2,6 @@ return {
 	"saghen/blink.cmp",
 	event = { "InsertEnter", "CmdlineEnter" },
 	branch = "v1",
-	dependencies = {
-		{
-			"L3MON4D3/LuaSnip",
-			build = (function()
-				if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
-					return
-				end
-				return "make install_jsregexp"
-			end)(),
-			dependencies = {
-				{
-					"rafamadriz/friendly-snippets",
-					event = "InsertEnter",
-					config = function()
-						require("luasnip.loaders.from_vscode").lazy_load()
-					end,
-				},
-			},
-			opts = {},
-		},
-	},
 	opts = {
 		keymap = {
 			preset = "default",
@@ -37,9 +16,15 @@ return {
 		},
 		sources = {
 			default = { "lsp", "path", "snippets" },
+			per_filetype = {
+				sql = { "dadbod_grip", inherit_defaults = true },
+			},
+			providers = {
+				dadbod_grip = { name = "Grip SQL", module = "dadbod-grip.completion.blink" },
+			},
 		},
 		cmdline = {
-			keymap = { preset = "inherit" },
+			keymap = { preset = "cmdline" },
 			completion = {
 				menu = {
 					auto_show = true,

@@ -56,8 +56,5 @@ return {
 	opts = {
 		picker = "telescope",
 		completion = false,
-		keymaps = {
-			qpad_execute = "<leader>er",
-		},
 	},
 }

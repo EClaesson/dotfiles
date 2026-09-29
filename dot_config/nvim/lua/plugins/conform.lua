@@ -104,7 +104,12 @@ return {
 			jsonc = { "prettier" },
 			yaml = { "prettier" },
 			python = { "ruff_organize_imports", "ruff_format" },
-			http = { "kulala-fmt" },
+			sql = { "sql_formatter" },
+		},
+		formatters = {
+			sql_formatter = {
+				prepend_args = { "--language", "postgresql" },
+			},
 		},
 	},
 }
